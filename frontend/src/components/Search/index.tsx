@@ -1,16 +1,15 @@
 "use client";
 
 import { DownOutlined } from "@ant-design/icons";
-import { Form, Select, theme } from "antd";
+import { Select } from "antd";
 import Link from "next/link";
 import { useState } from "react";
 import { SearchForms } from "./forms";
+import { SearchMenuBar } from "./menubar";
 
 const { Option } = Select;
 
 export const Search = (): JSX.Element => {
-  const { token } = theme.useToken();
-  const [form] = Form.useForm();
   const [expand, setExpand] = useState(false);
 
   return (
@@ -18,6 +17,7 @@ export const Search = (): JSX.Element => {
       <p className="relative self-stretch mt-[-1.00px] [font-family:'Inter-Regular',Helvetica] font-normal text-black text-[32px] text-center tracking-[0] leading-[48px]">
         Busque o seu imovel ideal
       </p>
+      <SearchMenuBar />
       <div className="flex flex-col items-start gap-[8px] relative self-stretch w-full flex-[0_0_auto]">
         <div className="self-stretch text-black relative mt-[-1.00px] font-small-text font-[number:var(--small-text-font-weight)] text-[length:var(--small-text-font-size)] tracking-[var(--small-text-letter-spacing)] leading-[var(--small-text-line-height)] [font-style:var(--small-text-font-style)]">
           Label
@@ -59,3 +59,4 @@ export const Search = (): JSX.Element => {
     </div>
   );
 };
+
