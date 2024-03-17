@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  app:
+    image: frontend
+    build:
+      context: ./frontend
+      target: production
+      dockerfile: frontend/Dockerfile
+    volumes:
+        - .:/frontend/app
+        - /frontend/app/node_modules
+        - /frontend/app/.next
+    ports:
+      - "3000:3000"
