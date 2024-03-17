@@ -1,4 +1,18 @@
+import { company_name, background_color_default } from "@/lib/constants";
+
 export const NavBar = (): JSX.Element => {
+  const links = [
+    { name: "Alugar", url: "/alugar" },
+    { name: "Comprar", url: "/comprar" },
+    { name: "Lancamentos", url: "/lancamentos" },
+    { name: "Busca", url: "/busca" },
+    { name: "Financiamento", url: "/financiamento" },
+    { name: "Anunciar", url: "/anunciar" },
+  ];
+  const buttons = [
+    { name: "Criar Conta", url: "/criar_conta" },
+    { name: "Entrar", url: "/entrar" },
+  ];
   return (
     <div
       style={{
@@ -8,7 +22,7 @@ export const NavBar = (): JSX.Element => {
         paddingRight: "20px",
         paddingTop: "10px",
         paddingBottom: "10px",
-        background: "#FBFCC8",
+        background: background_color_default,
         justifyContent: "space-between",
         alignItems: "flex-start",
         display: "inline-flex",
@@ -27,7 +41,7 @@ export const NavBar = (): JSX.Element => {
           wordWrap: "break-word",
         }}
       >
-        Corretora XXX
+        {company_name}
       </div>
       <div
         style={{
@@ -39,78 +53,20 @@ export const NavBar = (): JSX.Element => {
           display: "flex",
         }}
       >
-        <div
-          style={{
-            color: "black",
-            fontSize: "15px",
-            fontFamily: "Inter",
-            fontWeight: 400,
-            lineHeight: "22.50px",
-            wordWrap: "break-word",
-          }}
-        >
-          Alugar
-        </div>
-        <div
-          style={{
-            color: "black",
-            fontSize: "15px",
-            fontFamily: "Inter",
-            fontWeight: 400,
-            lineHeight: "22.50px",
-            wordWrap: "break-word",
-          }}
-        >
-          Comprar
-        </div>
-        <div
-          style={{
-            color: "black",
-            fontSize: "15px",
-            fontFamily: "Inter",
-            fontWeight: 400,
-            lineHeight: "22.50px",
-            wordWrap: "break-word",
-          }}
-        >
-          Lancamentos
-        </div>
-        <div
-          style={{
-            color: "black",
-            fontSize: "15px",
-            fontFamily: "Inter",
-            fontWeight: 400,
-            lineHeight: "22.50px",
-            wordWrap: "break-word",
-          }}
-        >
-          Busca
-        </div>
-        <div
-          style={{
-            color: "black",
-            fontSize: "15px",
-            fontFamily: "Inter",
-            fontWeight: 400,
-            lineHeight: "22.50px",
-            wordWrap: "break-word",
-          }}
-        >
-          Financiamento
-        </div>
-        <div
-          style={{
-            color: "black",
-            fontSize: "15px",
-            fontFamily: "Inter",
-            fontWeight: 400,
-            lineHeight: "22.50px",
-            wordWrap: "break-word",
-          }}
-        >
-          Anunciar
-        </div>
+        {links.map((link, index) => (
+          <div
+            style={{
+              color: "black",
+              fontSize: "15px",
+              fontFamily: "Inter",
+              fontWeight: 400,
+              lineHeight: "22.50px",
+              wordWrap: "break-word",
+            }}
+          >
+            {link.name}
+          </div>
+        ))}
       </div>
       <div
         style={{
@@ -123,52 +79,31 @@ export const NavBar = (): JSX.Element => {
           display: "flex",
         }}
       >
-        <div
-          style={{
-            paddingLeft: "16px",
-            paddingRight: "16px",
-            paddingTop: "14px",
-            paddingBottom: "14px",
-            background: "#70CBFF",
-            boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
-            borderRadius: "16px",
-            justifyContent: "center",
-            alignItems: "center",
-            gap: "16px",
-            display: "flex",
-            color: "white",
-            fontSize: "16px",
-            fontFamily: "Inter",
-            fontWeight: 500,
-            lineHeight: "24px",
-            wordWrap: "break-word",
-          }}
-        >
-          Criar Conta
-        </div>
-        <div
-          style={{
-            paddingLeft: "24px",
-            paddingRight: "24px",
-            paddingTop: "14px",
-            paddingBottom: "14px",
-            background: "#70CBFF",
-            boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
-            borderRadius: "16px",
-            justifyContent: "center",
-            alignItems: "center",
-            gap: "8px",
-            display: "flex",
-            color: "white",
-            fontSize: "16px",
-            fontFamily: "Inter",
-            fontWeight: 500,
-            lineHeight: "24px",
-            wordWrap: "break-word",
-          }}
-        >
-          Entrar
-        </div>
+        {buttons.map((button, index) => (
+          <div
+            style={{
+              paddingLeft: "16px",
+              paddingRight: "16px",
+              paddingTop: "14px",
+              paddingBottom: "14px",
+              background: "#70CBFF",
+              boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
+              borderRadius: "16px",
+              justifyContent: "center",
+              alignItems: "center",
+              gap: "16px",
+              display: "flex",
+              color: "white",
+              fontSize: "16px",
+              fontFamily: "Inter",
+              fontWeight: 500,
+              lineHeight: "24px",
+              wordWrap: "break-word",
+            }}
+          >
+            {button.name}
+          </div>
+        ))}
       </div>
     </div>
   );

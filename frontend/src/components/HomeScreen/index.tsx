@@ -1,3 +1,5 @@
+import { company_name } from "@/lib/constants";
+
 export const HomeImage = (): JSX.Element => {
   return (
     <div
@@ -28,7 +30,7 @@ export const HomeImage = (): JSX.Element => {
           wordWrap: "break-word",
         }}
       >
-        Corretora XXXX
+        {company_name}
       </div>
       <div
         style={{

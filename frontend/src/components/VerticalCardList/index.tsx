@@ -1,6 +1,5 @@
-import React from "react";
+import { VerticalCardListProps } from "@/lib/types";
 import { VerticalCard } from "../VerticalCard";
-import { VerticalCardListProps, VerticalCardProps } from "@/lib/types";
 
 export const VerticalCardList = (props: VerticalCardListProps): JSX.Element => {
   return (
@@ -8,11 +7,15 @@ export const VerticalCardList = (props: VerticalCardListProps): JSX.Element => {
       style={{
         width: "100%",
         height: "100%",
+        paddingTop: "50px",
+        paddingBottom: "50px",
+        paddingLeft: "50px",
+        paddingRight: "50px",
         flexDirection: "column",
-        justifyContent: "flex-start",
         backgroundColor: "white",
+        justifyContent: "center",
         alignItems: "flex-start",
-        gap: "20px",
+        gap: "10px",
         display: "inline-flex",
       }}
     >

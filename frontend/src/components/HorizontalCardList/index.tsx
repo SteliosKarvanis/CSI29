@@ -13,8 +13,8 @@ export const HorizontalCardList = (
         width: "100%",
         height: "100%",
         paddingTop: "20px",
-        paddingLeft: "50px",
-        paddingRight: "50px",
+        paddingLeft: "200px",
+        paddingRight: "200px",
         flexDirection: "column",
         justifyContent: "flex-start",
         alignItems: "flex-start",
@@ -27,7 +27,7 @@ export const HorizontalCardList = (
         style={{
           alignSelf: "stretch",
           color: "black",
-          fontSize: "48px",
+          fontSize: "36px",
           fontFamily: "Inter",
           fontWeight: 500,
           lineHeight: "72px",
@@ -36,7 +36,21 @@ export const HorizontalCardList = (
       >
         Resultados
       </div>
-      {cardsRender}
+      <div
+        style={{
+          alignSelf: "stretch",
+          height: "100%",
+          paddingLeft: "50px",
+          paddingRight: "50px",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          gap: "50px",
+          display: "flex",
+        }}
+      >
+        {cardsRender}
+      </div>
     </div>
   );
 };

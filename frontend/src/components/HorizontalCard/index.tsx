@@ -12,8 +12,7 @@ export const HorizontalCard = (props: HorizontalCardProps): JSX.Element => {
     <div
       style={{
         width: "100%",
-        height: "100%",
-        paddingRight: "20px",
+        height: "200px",
         background: "#FBFCC8",
         borderRadius: "30px",
         overflow: "hidden",
