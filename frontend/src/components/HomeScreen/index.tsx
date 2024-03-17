@@ -1,4 +1,5 @@
 import { company_name } from "@/lib/constants";
+import Link from "next/link";
 
 export const HomeImage = (): JSX.Element => {
   return (
@@ -60,6 +61,7 @@ export const HomeImage = (): JSX.Element => {
           display: "inline-flex",
         }}
       >
+        <Link href="/search">
         <div
           style={{
             color: "white",
@@ -70,8 +72,9 @@ export const HomeImage = (): JSX.Element => {
             wordWrap: "break-word",
           }}
         >
-          Comprar Agora
+          Buscar
         </div>
+        </Link>
       </div>
     </div>
   );

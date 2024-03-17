@@ -1,17 +1,17 @@
 import { company_name, background_color_default } from "@/lib/constants";
+import Link from "next/link";
 
 export const NavBar = (): JSX.Element => {
   const links = [
-    { name: "Alugar", url: "/alugar" },
-    { name: "Comprar", url: "/comprar" },
-    { name: "Lancamentos", url: "/lancamentos" },
-    { name: "Busca", url: "/busca" },
+    { name: "Alugar", url: "/search" },
+    { name: "Comprar", url: "/search" },
+    { name: "Busca", url: "/search" },
     { name: "Financiamento", url: "/financiamento" },
     { name: "Anunciar", url: "/anunciar" },
   ];
   const buttons = [
-    { name: "Criar Conta", url: "/criar_conta" },
-    { name: "Entrar", url: "/entrar" },
+    { name: "Criar Conta", url: "/signin" },
+    { name: "Entrar", url: "/login" },
   ];
   return (
     <div
@@ -41,7 +41,9 @@ export const NavBar = (): JSX.Element => {
           wordWrap: "break-word",
         }}
       >
+        <Link href="/">
         {company_name}
+        </Link>
       </div>
       <div
         style={{
@@ -54,6 +56,7 @@ export const NavBar = (): JSX.Element => {
         }}
       >
         {links.map((link, index) => (
+          <Link key={index} href={link.url}>
           <div
             style={{
               color: "black",
@@ -66,6 +69,7 @@ export const NavBar = (): JSX.Element => {
           >
             {link.name}
           </div>
+          </Link>
         ))}
       </div>
       <div
@@ -80,6 +84,7 @@ export const NavBar = (): JSX.Element => {
         }}
       >
         {buttons.map((button, index) => (
+          <Link key={index} href={button.url}>
           <div
             style={{
               paddingLeft: "16px",
@@ -103,6 +108,7 @@ export const NavBar = (): JSX.Element => {
           >
             {button.name}
           </div>
+          </Link>
         ))}
       </div>
     </div>
