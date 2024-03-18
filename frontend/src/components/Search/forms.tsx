@@ -1,5 +1,6 @@
 import { Button, Form, Select, Switch } from "antd";
 import { SliderCustom } from "../FormsUtils";
+import { background_color_secondary } from "@/lib/constants";
 
 const { Option } = Select;
 
@@ -29,7 +30,7 @@ export const SearchForms = (): JSX.Element => {
       initialValues={{}}
       style={{
         width: "100%",
-        backgroundColor: "white",
+        backgroundColor: background_color_secondary,
         padding: "20px",
         borderRadius: "10px",
       }}
