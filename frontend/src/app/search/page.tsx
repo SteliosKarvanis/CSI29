@@ -6,7 +6,7 @@ import { Col } from "antd";
 
 export default function SearchPage() {
   const card = {
-    imgSrc: "house_example.jpg",
+    imgSrc: "/house_example.jpg",
     city: "Bucuresti",
     county: "Ilfov",
     street: "Strada Exemplu",
@@ -15,19 +15,19 @@ export default function SearchPage() {
     pricePerSquareMeter: 1000,
     tags: [
       {
-        imageSrc: "bathroom.png",
+        imageSrc: "/bathroom.png",
         value: "2",
       },
       {
-        imageSrc: "car.png",
+        imageSrc: "/car.png",
         value: "5",
       },
       {
-        imageSrc: "room.png",
+        imageSrc: "/room.png",
         value: "3",
       },
       {
-        imageSrc: "size.png",
+        imageSrc: "/size.png",
         value: "100",
       },
     ],

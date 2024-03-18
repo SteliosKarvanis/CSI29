@@ -15,7 +15,7 @@ export default function Home() {
         street: "Rua das Flores, 123",
         price: 500000,
         pricePerSquareMeter: 5000,
-        imgSrc: "house_example.jpg",
+        imgSrc: "/house_example.jpg",
       },
       {
         id: "1",
@@ -24,7 +24,7 @@ export default function Home() {
         street: "Rua das Flores, 123",
         price: 500000,
         pricePerSquareMeter: 5000,
-        imgSrc: "house_example.jpg",
+        imgSrc: "/house_example.jpg",
       },
       {
         id: "1",
@@ -33,7 +33,7 @@ export default function Home() {
         street: "Rua das Flores, 123",
         price: 500000,
         pricePerSquareMeter: 5000,
-        imgSrc: "house_example.jpg",
+        imgSrc: "/house_example.jpg",
       },
     ],
   };

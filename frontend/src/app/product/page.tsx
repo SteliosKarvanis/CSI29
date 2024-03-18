@@ -6,7 +6,7 @@ import { Col } from "antd";
 
 export default function SearchPage() {
   const card = {
-    imgSrc: "house_example.jpg",
+    imgSrc: "/house_example.jpg",
     city: "Bucuresti",
     county: "Ilfov",
     street: "Strada Exemplu",

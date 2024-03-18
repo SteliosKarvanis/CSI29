@@ -1,57 +1,26 @@
 import { BrokerProps } from "@/lib/types";
+import { Flex } from "antd";
 
 export const BrokerIcon = (props: BrokerProps): JSX.Element => {
   return (
-    <div
-      style={{
-        alignSelf: "stretch",
-        justifyContent: "flex-start",
-        alignItems: "center",
-        gap: "10px",
-        display: "inline-flex",
-      }}
+    <Flex
+      align="center"
+      justify="flex-start"
+      style={{ width: "100%", height: "50px" }}
     >
       <img
         style={{ width: "50px", height: "50px", borderRadius: "50px" }}
         src={props.imgSrc}
       />
-      <div
-        style={{
-          flex: "1 1 0",
-          alignSelf: "stretch",
-          flexDirection: "column",
-          justifyContent: "flex-start",
-          alignItems: "flex-start",
-          display: "inline-flex",
-        }}
+      <Flex
+        vertical
+        align="flex-start"
+        justify="center"
+        style={{ marginLeft: "10px" }}
       >
-        <div
-          style={{
-            alignSelf: "stretch",
-            flex: "1 1 0",
-            color: "black",
-            fontSize: "20px",
-            fontFamily: "Inter",
-            fontWeight: 500,
-            wordWrap: "break-word",
-          }}
-        >
-          {props.name}
-        </div>
-        <div
-          style={{
-            alignSelf: "stretch",
-            flex: "1 1 0",
-            color: "black",
-            fontSize: "14px",
-            fontFamily: "Inter",
-            fontWeight: 500,
-            wordWrap: "break-word",
-          }}
-        >
-          {props.role}
-        </div>
-      </div>
-    </div>
+        <p style={{ fontSize: "20px", color: "black" }}>{props.name}</p>
+        <p style={{ fontSize: "14px", color: "black" }}>{props.role}</p>
+      </Flex>
+    </Flex>
   );
 };

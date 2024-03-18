@@ -1,195 +1,116 @@
+"use client";
+
 import { HorizontalCardProps } from "@/lib/types";
+import { Button, Card, Flex, List } from "antd";
 import { BrokerIcon } from "../BrokerIcon";
 import { TagIcon } from "../TagIcon";
+import { background_color_default, background_color_secondary, button_color } from "@/lib/constants";
 
 export const HorizontalCard = (props: HorizontalCardProps): JSX.Element => {
   const brokerRender = BrokerIcon(props.broker);
-  const address = `${props.city}, ${props.county}`;
-  const tagsRender = props.tags.map((tag, index) => (
-    <TagIcon key={index} {...tag} />
-  ));
-  return (
-    <div
+  const topPadding = "20px";
+  const bottomPadding = "20px";
+  const infosCol = (
+    <Flex
+      vertical
+      align="flex-start"
+      justify="space-between"
       style={{
         width: "100%",
-        height: "200px",
-        background: "#FBFCC8",
-        borderRadius: "30px",
-        overflow: "hidden",
-        justifyContent: "flex-start",
-        alignItems: "flex-start",
-        gap: "10px",
-        display: "inline-flex",
+        height: "100%",
+        paddingTop: topPadding,
+        paddingBottom: bottomPadding,
       }}
     >
-      <img style={{ flex: "1 1 0", alignSelf: "stretch" }} src={props.imgSrc} />
-      <div
+      <div>
+        <p style={{ fontSize: "32px", color:"black" }}>{props.county + ", " + props.city}</p>
+        <p style={{color:"black"}}>{props.street}</p>
+      </div>
+      <div>
+        <p style={{color:"black"}}>{"R$ " + props.price}</p>
+        <p style={{color:"black"}}>{props.size + " m2"}</p>
+        <p style={{color:"black"}}>{"Valor do m2: R$ " + props.pricePerSquareMeter}</p>
+      </div>
+    </Flex>
+  );
+  const tagsCol = (
+    <List
+      dataSource={props.tags}
+      grid={{
+        gutter: 16,
+        xs: 1,
+        sm: 2,
+        md: 4,
+        lg: 4,
+        xl: 6,
+        xxl: 2,
+      }}
+      style={{
+        width: "100%",
+        height: "100%",
+        paddingTop: topPadding,
+        paddingBottom: bottomPadding,
+        alignItems: "center",
+      }}
+      renderItem={(tag) => (
+        <List.Item>
+          <TagIcon {...tag} />
+        </List.Item>
+      )}
+    />
+  );
+  const contactCol = (
+    <Flex
+      vertical
+      gap="10px"
+      style={{
+        width: "100%",
+        height: "100%",
+        paddingTop: topPadding,
+        paddingBottom: bottomPadding,
+      }}
+    >
+      <Button 
+      shape="round"
         style={{
-          flex: "1 1 0",
-          alignSelf: "stretch",
-          paddingTop: "20px",
-          paddingBottom: "20px",
-          flexDirection: "column",
-          justifyContent: "flex-start",
-          alignItems: "flex-start",
-          gap: "20px",
-          display: "inline-flex",
+          background: background_color_default,
+          color: "white",
+          height: "100%",
+          width: "100%",
         }}
       >
-        <div
-          style={{
-            alignSelf: "stretch",
-            flex: "1 1 0",
-            flexDirection: "column",
-            justifyContent: "flex-start",
-            alignItems: "flex-start",
-            display: "flex",
-          }}
-        >
-          <div
-            style={{
-              alignSelf: "stretch",
-              height: "33.89px",
-              color: "black",
-              fontSize: "20px",
-              fontFamily: "Inter",
-              fontWeight: "500",
-              lineHeight: "30px",
-              wordWrap: "break-word",
-            }}
-          >
-            {address}
-          </div>
-          <div
-            style={{
-              alignSelf: "stretch",
-              height: "33.89px",
-              color: "#828282",
-              fontSize: "20px",
-              fontFamily: "Inter",
-              fontWeight: "500",
-              lineHeight: "30px",
-              wordWrap: "break-word",
-            }}
-          >
-            {props.street}
-          </div>
-        </div>
-        <div
-          style={{
-            alignSelf: "stretch",
-            flex: "1 1 0",
-            color: "black",
-            fontSize: "20px",
-            fontFamily: "Inter",
-            fontWeight: "500",
-            lineHeight: "30px",
-            wordWrap: "break-word",
-          }}
-        >
-          {props.size} m2
-        </div>
-        <div
-          style={{
-            alignSelf: "stretch",
-            flex: "1 1 0",
-            flexDirection: "column",
-            justifyContent: "flex-start",
-            alignItems: "flex-start",
-            gap: "5px",
-            display: "flex",
-          }}
-        >
-          <div
-            style={{
-              alignSelf: "stretch",
-              flex: "1 1 0",
-              color: "black",
-              fontSize: "24px",
-              fontFamily: "Inter",
-              fontWeight: "500",
-              lineHeight: "36px",
-              wordWrap: "break-word",
-            }}
-          >
-            R$ {props.price}
-          </div>
-          <div
-            style={{
-              alignSelf: "stretch",
-              flex: "1 1 0",
-              color: "#828282",
-              fontSize: "20px",
-              fontFamily: "Inter",
-              fontWeight: "500",
-              lineHeight: "30px",
-              wordWrap: "break-word",
-            }}
-          >
-            Valor do m2: R$ {props.pricePerSquareMeter}
-          </div>
-        </div>
-      </div>
-      <div
+        Contatar Corretor
+      </Button>
+      {brokerRender}
+    </Flex>
+  );
+
+  return (
+    <Card hoverable style={{height:"200px", borderRadius: "30px"}} styles={{ body: { padding: 0, overflow: 'hidden' } }}>
+      <Flex
+        align="center"
+        gap="10px"
         style={{
-          flex: "1 1 0",
-          alignSelf: "stretch",
-          paddingTop: "20px",
-          paddingBottom: "20px",
-          flexDirection: "column",
-          justifyContent: "flex-start",
-          alignItems: "flex-start",
-          gap: "5px",
-          display: "inline-flex",
+          height: "200px",
+          width: "100%",
+          overflow: "hidden",
+          borderRadius: "30px",
+          paddingRight: "30px",
+          background: background_color_secondary,
+          padding: 0,
         }}
       >
-        {tagsRender}
-      </div>
-      <div
-        style={{
-          flex: "1 1 0",
-          alignSelf: "stretch",
-          paddingTop: "20px",
-          paddingBottom: "20px",
-          flexDirection: "column",
-          justifyContent: "flex-start",
-          alignItems: "flex-start",
-          gap: "20px",
-          display: "inline-flex",
-        }}
-      >
-        <div
-          style={{
-            width: "316.25px",
-            flex: "1 1 0",
-            paddingLeft: "50px",
-            paddingRight: "50px",
-            paddingTop: "14px",
-            paddingBottom: "14px",
-            background: "#86B85E",
-            boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
-            borderRadius: "8px",
-            justifyContent: "center",
-            alignItems: "center",
-            gap: "20px",
-            display: "inline-flex",
-          }}
-        >
-          <div
-            style={{
-              color: "white",
-              fontSize: "16px",
-              fontFamily: "Inter",
-              fontWeight: "500",
-              lineHeight: "24px",
-              wordWrap: "break-word",
-            }}
-          >
-            Contatar Corretor
-          </div>
-        </div>
-        {brokerRender}
-      </div>
-    </div>
+        <img
+          alt="house"
+          width="100%"
+          height="100%"
+          src={props.imgSrc}
+          style={{ objectFit: "cover" }}
+        />
+        {infosCol}
+        {tagsCol}
+        {contactCol}
+      </Flex>
+      </Card>
   );
 };

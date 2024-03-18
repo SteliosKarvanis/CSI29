@@ -1,31 +1,14 @@
 import { TagProps } from "@/lib/types";
+import { Flex } from "antd";
+import Image from "next/image";
 
 export const TagIcon = (props: TagProps): JSX.Element => {
   return (
-    <div
-      style={{
-        alignSelf: "stretch",
-        justifyContent: "flex-start",
-        alignItems: "flex-start",
-        gap: "10px",
-        display: "inline-flex",
-      }}
-    >
-      <img style={{ width: "40px", height: "40px" }} src={props.imageSrc} />
-      <div
-        style={{
-          flex: "1 1 0",
-          alignSelf: "stretch",
-          color: "black",
-          fontSize: "20px",
-          fontFamily: "Inter",
-          fontWeight: "500",
-          lineHeight: "30px",
-          wordWrap: "break-word",
-        }}
-      >
+    <Flex align="center" justify="flex-start" gap="5px">
+      <Image alt="icon" width="30" height="30" src={props.imageSrc} />
+      <p style={{color: "black", textAlign: "center"}}>
         {props.value}
-      </div>
-    </div>
+      </p>
+    </Flex>
   );
 };
