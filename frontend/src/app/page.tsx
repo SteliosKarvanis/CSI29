@@ -1,16 +1,15 @@
-import { Col } from "antd";
-import { NavBar } from "../components/NavBar";
-import { Search } from "@/components/Search";
 import { HomeImage } from "@/components/HomeScreen";
+import { Search } from "@/components/Search";
 import { VerticalCardList } from "@/components/VerticalCardList";
-import { VerticalCardProps, VerticalCardListProps } from "@/lib/types";
-import { VerticalCard } from "@/components/VerticalCard";
+import { VerticalCardListProps } from "@/lib/types";
+import { Col } from "antd";
 
 export default function Home() {
   const cardsList: VerticalCardListProps = {
     name: "Em Alta",
     cards: [
       {
+        id: "1",
         city: "São Paulo",
         county: "São Paulo",
         street: "Rua das Flores, 123",
@@ -19,6 +18,7 @@ export default function Home() {
         imgSrc: "house_example.jpg",
       },
       {
+        id: "1",
         city: "São Paulo",
         county: "São Paulo",
         street: "Rua das Flores, 123",
@@ -27,6 +27,7 @@ export default function Home() {
         imgSrc: "house_example.jpg",
       },
       {
+        id: "1",
         city: "São Paulo",
         county: "São Paulo",
         street: "Rua das Flores, 123",
