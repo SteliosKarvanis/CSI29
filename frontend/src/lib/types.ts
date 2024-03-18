@@ -1,4 +1,5 @@
 export interface VerticalCardProps {
+  id: string;
   city: string;
   county: string;
   street: string;

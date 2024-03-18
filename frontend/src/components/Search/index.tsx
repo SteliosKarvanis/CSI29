@@ -1,62 +1,47 @@
 "use client";
 
-import { DownOutlined } from "@ant-design/icons";
-import { Select } from "antd";
-import Link from "next/link";
-import { useState } from "react";
+import { background_color_secondary, button_color } from "@/lib/constants";
+import { Button, Collapse, CollapseProps, Flex, Input } from "antd";
 import { SearchForms } from "./forms";
 import { SearchMenuBar } from "./menubar";
 
-const { Option } = Select;
-
 export const Search = (): JSX.Element => {
-  const [expand, setExpand] = useState(false);
-
+  const items: CollapseProps["items"] = [
+    {
+      key: "1",
+      label: "Mais Opcoes",
+      children: <SearchForms />,
+    },
+  ];
   return (
-    <div className="flex flex-col items-start gap-[20px] px-[300px] py-[60px] relative bg-[#e0e0e0]">
-      <p className="relative self-stretch mt-[-1.00px] [font-family:'Inter-Regular',Helvetica] font-normal text-black text-[32px] text-center tracking-[0] leading-[48px]">
-        Busque o seu imovel ideal
-      </p>
-      <SearchMenuBar />
-      <div className="flex flex-col items-start gap-[8px] relative self-stretch w-full flex-[0_0_auto]">
-        <div className="self-stretch text-black relative mt-[-1.00px] font-small-text font-[number:var(--small-text-font-weight)] text-[length:var(--small-text-font-size)] tracking-[var(--small-text-letter-spacing)] leading-[var(--small-text-line-height)] [font-style:var(--small-text-font-style)]">
-          Label
+    <div
+      style={{
+        paddingRight: "20%",
+        paddingLeft: "20%",
+        paddingBottom: "50px",
+        paddingTop: "50px",
+        background: background_color_secondary,
+      }}
+    >
+      <Flex gap="middle" vertical>
+        <p style={{fontSize: "32px", color: "black", textAlign: "center"}}>
+          Busque o seu imovel ideal
+        </p>
+        <SearchMenuBar />
+        <div>
+          <p style={{ color: "black" }}>Endereco (Rua, Bairro, CEP, cidade)</p>
+          <Input placeholder="E.g. Campus do CTA" size="large" />
         </div>
-        <input
-          className="px-[16px] py-[12px] relative self-stretch w-full bg-white rounded-[8px] border border-solid border-[#e0e0e0] shadow-button-shadow text-[#828282] mt-[-1.00px] font-small-text font-[number:var(--small-text-font-weight)] text-[length:var(--small-text-font-size)] tracking-[var(--small-text-letter-spacing)] leading-[var(--small-text-line-height)] [font-style:var(--small-text-font-style)]"
-          placeholder="Placeholder"
-          type="text"
-        />
-      </div>
-      <div className="flex flex-col items-start gap-[8px] relative self-stretch w-full flex-[0_0_auto]">
-        <div className="self-stretch text-black relative mt-[-1.00px] font-small-text font-[number:var(--small-text-font-weight)] text-[length:var(--small-text-font-size)] tracking-[var(--small-text-letter-spacing)] leading-[var(--small-text-line-height)] [font-style:var(--small-text-font-style)]">
-          Label
-        </div>
-        <input
-          className="px-[16px] py-[12px] relative self-stretch w-full bg-white rounded-[8px] border border-solid border-[#e0e0e0] shadow-button-shadow text-[#828282] mt-[-1.00px] font-small-text font-[number:var(--small-text-font-weight)] text-[length:var(--small-text-font-size)] tracking-[var(--small-text-letter-spacing)] leading-[var(--small-text-line-height)] [font-style:var(--small-text-font-style)]"
-          placeholder="Placeholder"
-          type="text"
-        />
-      </div>
-      <div className="flex flex-col items-start gap-[1136px] relative self-stretch w-full flex-[0_0_auto]">
-        <a
-          style={{ fontSize: 12, color: "black" }}
-          onClick={() => {
-            setExpand(!expand);
-          }}
+        <Collapse ghost items={items} />
+        <Button
+          href="/search"
+          block
+          size="large"
+          style={{ background: button_color, color: "white" }}
         >
-          <DownOutlined rotate={expand ? 0 : 180} /> Mais Opcoes
-        </a>
-      </div>
-      {expand && <SearchForms />}
-      <button className="all-[unset] box-border flex items-center justify-center gap-[8px] px-[24px] py-[14px] relative self-stretch w-full flex-[0_0_auto] bg-[#6fcbff] rounded-[16px] shadow-button-shadow">
-        <Link href="/search">
-          <div className="relative w-fit mt-[-1.00px] font-small-text font-[number:var(--small-text-font-weight)] text-white text-[length:var(--small-text-font-size)] tracking-[var(--small-text-letter-spacing)] leading-[var(--small-text-line-height)] whitespace-nowrap [font-style:var(--small-text-font-style)]">
-            Buscar
-          </div>
-        </Link>
-      </button>
+          Buscar
+        </Button>
+      </Flex>
     </div>
   );
 };
-

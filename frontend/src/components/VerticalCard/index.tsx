@@ -1,23 +1,41 @@
-import React from 'react';
-import { VerticalCardProps } from '@/lib/types';
+"use client";
+
+import { VerticalCardProps } from "@/lib/types";
+import { Card } from "antd";
+import Link from "next/link";
+import React from "react";
+
+const { Meta } = Card;
+const titleRender = (props: VerticalCardProps): React.ReactNode => {
+  return (
+    <>
+      <h1>{props.county + ", " + props.city}</h1>
+      <p>{props.street}</p>
+    </>
+  );
+};
+
+const descriptionRender = (props: VerticalCardProps): React.ReactNode => {
+  return (
+    <>
+      <p>{"R$ " + props.price}</p>
+      <p>{"Valor do m2 R$" + props.pricePerSquareMeter}</p>
+    </>
+  );
+};
 
 export const VerticalCard = (props: VerticalCardProps): JSX.Element => {
-    const address = `${props.city}, ${props.county}`;
-    const price = `R$ ${props.price.toFixed(2)}`;
-    const pricePerSquareMeter = `Valor do m2 R$ ${props.pricePerSquareMeter.toFixed(2)}`;
-    return (
-        <div style={{ width: '100%', height: '100%', background: 'rgba(0, 0, 0, 0.08)', borderRadius: '20px', overflow: 'hidden', border: '1px black solid', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', display: 'inline-flex' }}>
-            <img style={{ alignSelf: 'stretch', flex: '1 1 0' }} src={props.imgSrc} />
-            <div style={{ alignSelf: 'stretch', height: '186px', paddingTop: '10px', paddingBottom: '20px', paddingLeft: '20px', paddingRight: '20px', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: '50px', display: 'flex' }}>
-                <div style={{ alignSelf: 'stretch', height: '53px', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: '5px', display: 'flex' }}>
-                    <div style={{ alignSelf: 'stretch', color: 'black', fontSize: '16px', fontFamily: 'Inter', fontWeight: 500, lineHeight: '24px', wordWrap: 'break-word' }}>{address}</div>
-                    <div style={{ alignSelf: 'stretch', color: 'black', fontSize: '16px', fontFamily: 'Inter', fontWeight: 500, lineHeight: '24px', wordWrap: 'break-word' }}>{props.street}</div>
-                </div>
-                <div style={{ alignSelf: 'stretch', height: '53px', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: '5px', display: 'flex' }}>
-                    <div style={{ alignSelf: 'stretch', color: 'black', fontSize: '16px', fontFamily: 'Inter', fontWeight: 500, lineHeight: '24px', wordWrap: 'break-word' }}>{price}</div>
-                    <div style={{ alignSelf: 'stretch', color: 'black', fontSize: '16px', fontFamily: 'Inter', fontWeight: 500, lineHeight: '24px', wordWrap: 'break-word' }}>{pricePerSquareMeter}</div>
-                </div>
-            </div>
-        </div>
-    );
-}
+  return (
+    <Link href={"/imovel/" + props.id}>
+      <Card
+        hoverable
+        cover={<img src={props.imgSrc} width={250} height={250} />}
+      >
+        <Meta
+          title={titleRender(props)}
+          description={descriptionRender(props)}
+        />
+      </Card>
+    </Link>
+  );
+};

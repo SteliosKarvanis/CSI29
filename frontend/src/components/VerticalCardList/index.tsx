@@ -1,52 +1,27 @@
 import { VerticalCardListProps } from "@/lib/types";
+import { Flex } from "antd";
 import { VerticalCard } from "../VerticalCard";
 
 export const VerticalCardList = (props: VerticalCardListProps): JSX.Element => {
   return (
-    <div
+    <Flex
+      vertical
+      gap="20px"
       style={{
-        width: "100%",
-        height: "100%",
+        background: "white",
+        paddingLeft: "20%",
+        paddingRight: "20%",
         paddingTop: "50px",
-        paddingBottom: "50px",
-        paddingLeft: "50px",
-        paddingRight: "50px",
-        flexDirection: "column",
-        backgroundColor: "white",
-        justifyContent: "center",
-        alignItems: "flex-start",
-        gap: "10px",
-        display: "inline-flex",
       }}
     >
-      <div
-        style={{
-          alignSelf: "stretch",
-          color: "black",
-          fontSize: "32px",
-          fontFamily: "Inter",
-          fontWeight: 500,
-          lineHeight: "48px",
-          wordWrap: "break-word",
-        }}
-      >
+      <p style={{ color: "black", fontSize: "32px", textAlign: "center" }}>
         {props.name}
-      </div>
-      <div
-        style={{
-          alignSelf: "stretch",
-          paddingLeft: "40px",
-          paddingRight: "40px",
-          justifyContent: "flex-start",
-          alignItems: "flex-start",
-          gap: "64px",
-          display: "inline-flex",
-        }}
-      >
+      </p>
+      <Flex align="center" justify="center" gap="50px">
         {props.cards.map((card, index) => (
           <VerticalCard key={index} {...card} />
         ))}
-      </div>
-    </div>
+      </Flex>
+    </Flex>
   );
 };

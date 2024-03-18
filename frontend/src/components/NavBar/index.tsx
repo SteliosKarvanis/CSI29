@@ -1,8 +1,9 @@
-import { background_color_default, company_name } from "@/lib/constants";
-import Link from "next/link";
+import { background_color_default, button_color } from "@/lib/constants";
+import { Button, Flex } from "antd";
 
 export const NavBar = (): JSX.Element => {
   const links = [
+    { name: "Corretora", url: "/" },
     { name: "Alugar", url: "/search" },
     { name: "Comprar", url: "/search" },
     { name: "Busca", url: "/search" },
@@ -13,104 +14,38 @@ export const NavBar = (): JSX.Element => {
     { name: "Criar Conta", url: "/signin" },
     { name: "Entrar", url: "/login" },
   ];
+  const navbar_style = {
+    width: "100%",
+    height: "100%",
+    padding: "20px",
+    background: background_color_default,
+  };
   return (
-    <div
-      style={{
-        width: "100%",
-        height: "100%",
-        paddingLeft: "20px",
-        paddingRight: "20px",
-        paddingTop: "10px",
-        paddingBottom: "10px",
-        background: background_color_default,
-        justifyContent: "space-between",
-        alignItems: "flex-start",
-        display: "inline-flex",
-      }}
-    >
-      <Link href="/">
-        <div
-          style={{
-            width: "138px",
-            alignSelf: "stretch",
-            textAlign: "center",
-            color: "black",
-            fontSize: "20px",
-            fontFamily: "Inter",
-            fontWeight: 500,
-            lineHeight: "30px",
-            wordWrap: "break-word",
-          }}
-        >
-          {company_name}
-        </div>
-      </Link>
-      <div
-        style={{
-          width: "515px",
-          alignSelf: "stretch",
-          justifyContent: "flex-end",
-          alignItems: "center",
-          gap: "20px",
-          display: "flex",
-        }}
-      >
+    <Flex style={navbar_style} justify="space-between" align="center">
+      <Flex gap="middle">
         {links.map((link, index) => (
-          <Link key={index} href={link.url}>
-            <div
-              style={{
-                color: "black",
-                fontSize: "15px",
-                fontFamily: "Inter",
-                fontWeight: 400,
-                lineHeight: "22.50px",
-                wordWrap: "break-word",
-              }}
-            >
-              {link.name}
-            </div>
-          </Link>
+          <Button
+            type="text"
+            href={link.url}
+            style={{ color: "white" }}
+            size="large"
+          >
+            {link.name}
+          </Button>
         ))}
-      </div>
-      <div
-        style={{
-          width: "235px",
-          alignSelf: "stretch",
-          borderRadius: "20px",
-          justifyContent: "flex-start",
-          alignItems: "center",
-          gap: "20px",
-          display: "flex",
-        }}
-      >
+      </Flex>
+      <Flex gap="middle">
         {buttons.map((button, index) => (
-          <Link key={index} href={button.url}>
-            <div
-              style={{
-                paddingLeft: "16px",
-                paddingRight: "16px",
-                paddingTop: "14px",
-                paddingBottom: "14px",
-                background: "#70CBFF",
-                boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
-                borderRadius: "16px",
-                justifyContent: "center",
-                alignItems: "center",
-                gap: "16px",
-                display: "flex",
-                color: "white",
-                fontSize: "16px",
-                fontFamily: "Inter",
-                fontWeight: 500,
-                lineHeight: "24px",
-                wordWrap: "break-word",
-              }}
-            >
-              {button.name}
-            </div>
-          </Link>
+          <Button
+            href={button.url}
+            shape="round"
+            size="large"
+            style={{ background: button_color, color: "white"}}
+          >
+            {button.name}
+          </Button>
         ))}
-      </div>
-    </div>
+      </Flex>
+    </Flex>
   );
 };
