@@ -24,7 +24,7 @@ export const NavBar = (): JSX.Element => {
     <Flex style={navbar_style} justify="space-between" align="center">
       <Flex gap="middle">
         {links.map((link, index) => (
-          <Button
+          <Button key={index}
             type="text"
             href={link.url}
             style={{ color: "white" }}
@@ -37,6 +37,7 @@ export const NavBar = (): JSX.Element => {
       <Flex gap="middle">
         {buttons.map((button, index) => (
           <Button
+            key={index}
             href={button.url}
             shape="round"
             size="large"

@@ -1,4 +1,9 @@
-export const MediaView = (props): JSX.Element => {
+export interface MediaProps {
+  primary: string;
+  secondary: string[];
+}
+
+export const MediaView = (props: MediaProps): JSX.Element => {
   return (
     <div
       style={{
