@@ -5,10 +5,15 @@ services:
     build:
       context: ./frontend
       target: production
-      dockerfile: frontend/Dockerfile
+      dockerfile: Dockerfile
     volumes:
-        - .:/frontend/app
+        - appvol_csi29:/frontend/app
         - /frontend/app/node_modules
         - /frontend/app/.next
     ports:
       - "3000:3000"
+
+volumes:
+  # DELETE them from your dev environment (PC) if you don't want to keep them
+  # see `docker volume ls`, `docker volume rm`, `docker volume prune`
+  appvol_csi29:
