@@ -12,6 +12,19 @@ services:
         - /frontend/app/.next
     ports:
       - "3000:3000"
+  
+  backend:
+    image: backend
+    build:
+      context: ./backend
+    ports:
+      - "8000:8000"
+      - "${POSTGRES_PORT}:${POSTGRES_PORT}"
+    environment:
+      - POSTGRES_PORT=${POSTGRES_PORT}  # POSTGRES_PORT available inside container
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PWD=${POSTGRES_PWD}
+
 
 volumes:
   # DELETE them from your dev environment (PC) if you don't want to keep them
