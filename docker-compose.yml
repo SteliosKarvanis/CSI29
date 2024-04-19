@@ -21,8 +21,11 @@ services:
       - "8000:8000"
     environment:
       - DATABASE_URL=${DATABASE_URL}
+      - MEDIA_ROOT=/usr/img
     networks:
       - server-side
+    volumes:
+      - appvol_csi29_images:${MEDIA_ROOT}
 
   db:
     image: postgres:16.2-alpine
@@ -44,6 +47,7 @@ volumes:
   # see `docker volume ls`, `docker volume rm`, `docker volume prune`
   appvol_csi29:
   appvol_csi29_data:
+  appvol_csi29_images:
 
 networks:
   server-side:

@@ -128,3 +128,9 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Path to directory where media (notably images) must be stored
+if not 'MEDIA_ROOT' in os.environ:
+    raise ValueError("You must set MEDIA_ROOT environment variable")
+
+MEDIA_ROOT = os.environ['MEDIA ROOT']
