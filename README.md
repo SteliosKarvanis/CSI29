@@ -16,13 +16,12 @@ Note:
 
 
 # Run Backend
-First, install PostgreSQL, make sure it is running, and change the `.env` file with the correct data to access it.
-
-Then, create a `.env` file in this directory (that is, in the same level as `docker-compose.yml`) with the following content, which must be updated with the proper values:
+First, create a `.env` file in this directory (that is, in the same level as `docker-compose.yml`) with the following content, which must be updated with the proper values:
 ```
-POSTGRES_PORT=...
 POSTGRES_USER=...
-POSTGRES_PWD=...
+POSTGRES_PASSWORD=...
+POSTGRES_DB=...
+DATABASE_URL=postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
 ```
 
 * In local machine
