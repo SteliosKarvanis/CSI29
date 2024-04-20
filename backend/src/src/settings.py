@@ -133,4 +133,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 if not 'MEDIA_ROOT' in os.environ:
     raise ValueError("You must set MEDIA_ROOT environment variable")
 
-MEDIA_ROOT = os.environ['MEDIA ROOT']
+MEDIA_ROOT = os.environ['MEDIA_ROOT']

@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import CheckConstraint, Q
 from uuid import uuid4
 
 
@@ -27,7 +28,6 @@ class Corretor(models.Model):
     def __str__(self):
         """String for representing the Model object."""
         return self.name
-
 
 
 class Imovel(models.Model):
@@ -61,13 +61,6 @@ class Imovel(models.Model):
     iptu = models.DecimalField(  # Imposto sobre a Propriedade Predial e Territorial Urbana
         max_digits=7,
         decimal_places=2
-    )
-    tipo_casa_apt = models.CharField(
-        max_length=4,
-        choices={
-            "CASA": "casa",
-            "APTO": "apartamento"
-        }
     )
     metros_quadrados = models.SmallIntegerField()
     quartos_total = models.SmallIntegerField()
@@ -169,7 +162,7 @@ class Multimidia(models.Model):
             "VIDEO": "Vídeo",
         }
     )
-    extensao_arquivo = tipo_img_video = models.CharField(
+    extensao_arquivo = models.CharField(
         max_length=5
     )  # extensao SEM O PONTO (e.g., evitar ".mp4", colocar apenas "mp4")
     arquivo = models.FileField(

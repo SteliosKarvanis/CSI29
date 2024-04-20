@@ -25,7 +25,7 @@ services:
     networks:
       - server-side
     volumes:
-      - appvol_csi29_images:${MEDIA_ROOT}
+      - appvol_csi29_images:/usr/img
 
   db:
     image: postgres:16.2-alpine
