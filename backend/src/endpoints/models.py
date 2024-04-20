@@ -24,10 +24,10 @@ class Corretor(models.Model):
         upload_to="corretores/"  # o destino sera ${MEDIA_ROOT}/corretores/
     )
     conta_ativa = models.BooleanField()
-    
+
     def __str__(self):
         """String for representing the Model object."""
-        return self.name
+        return self.nome
 
 
 class Imovel(models.Model):
@@ -45,18 +45,21 @@ class Imovel(models.Model):
     preco_compra = models.DecimalField(
         max_digits=10,
         decimal_places=2,
-        null=True
+        null=True,
+        blank=True 
     )  # ate 99.999.999,99
     alugar = models.BooleanField()  # se eh alugavel (pode ser apenas venda...)
     preco_aluguel = models.DecimalField(
         max_digits=7,
         decimal_places=2,
-        null=True
+        null=True,
+        blank=True 
     )  # ate 99.999,99
     taxa_condominio = models.DecimalField(
         max_digits=7,
         decimal_places=2,
-        null=True  # null significa que nao ha taxa de condominio; alternativamente, pode usar 0
+        null=True,  # null significa que nao ha taxa de condominio; alternativamente, pode usar 0
+        blank=True  # significa que usuario não é obrigado a informar esse campo ao criar um objeto do tipo
     )
     iptu = models.DecimalField(  # Imposto sobre a Propriedade Predial e Territorial Urbana
         max_digits=7,
@@ -97,7 +100,7 @@ class Imovel(models.Model):
 
     def __str__(self):
         """String for representing the Model object."""
-        return self.name
+        return self.nome_residencia
 
 
 class Casa(Imovel):
@@ -105,10 +108,6 @@ class Casa(Imovel):
     # c.f. https://docs.djangoproject.com/en/5.0/topics/db/models/#multi-table-inheritance
     numero_andares = models.SmallIntegerField()
     quintal = models.BooleanField()
-
-    def __str__(self):
-        """String for representing the Model object."""
-        return self.name
 
 
 class Apartamento(Imovel):
@@ -118,10 +117,6 @@ class Apartamento(Imovel):
     descricao_predio = models.CharField(
         max_length=1022
     )
-
-    def __str__(self):
-        """String for representing the Model object."""
-        return self.name
 
 
 class Endereco(models.Model):
@@ -139,9 +134,6 @@ class Endereco(models.Model):
     lon = models.FloatField()  # longitude
     perto_transporte_publico = models.BooleanField()
 
-    def __str__(self):
-        """String for representing the Model object."""
-        return self.name
 
 
 class Multimidia(models.Model):
@@ -169,9 +161,6 @@ class Multimidia(models.Model):
         upload_to="imoveis/"  # o destino sera ${MEDIA_ROOT}/imoveis/
     )
 
-    def __str__(self):
-        """String for representing the Model object."""
-        return self.name
 
 
 class Proprietario(models.Model):
@@ -193,4 +182,4 @@ class Proprietario(models.Model):
 
     def __str__(self):
         """String for representing the Model object."""
-        return self.name
+        return self.nome

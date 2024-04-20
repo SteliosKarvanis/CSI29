@@ -1,0 +1,251 @@
+[
+{
+  "model": "endpoints.corretor",
+  "pk": "51560b9f-cb58-41f1-9645-02a767f898b8",
+  "fields": {
+    "nome": "Corretor Aposentado",
+    "telefone": "12123456789",
+    "email": "email.antigo@novolar.com",
+    "foto": "corretores/Horacio.jpg",
+    "conta_ativa": false
+  }
+},
+{
+  "model": "endpoints.corretor",
+  "pk": "7842b980-1912-46dc-bf15-1d136c51237d",
+  "fields": {
+    "nome": "Mônica",
+    "telefone": "12123456789",
+    "email": "monica@novolar.com",
+    "foto": "corretores/Monica_P8hgZGi.png",
+    "conta_ativa": true
+  }
+},
+{
+  "model": "endpoints.corretor",
+  "pk": "a825dc89-317d-45a8-9989-08a71acccc03",
+  "fields": {
+    "nome": "Cebolinha",
+    "telefone": "12123456789",
+    "email": "cebolinha@novolar.com",
+    "foto": "corretores/Cebolinha.png",
+    "conta_ativa": true
+  }
+},
+{
+  "model": "endpoints.imovel",
+  "pk": "499f2c06-9f81-467f-9a63-51fb8d04046e",
+  "fields": {
+    "destaque": false,
+    "nome_residencia": "Hogwarts",
+    "comprar": true,
+    "preco_compra": "999999.99",
+    "alugar": true,
+    "preco_aluguel": "5000.00",
+    "taxa_condominio": "1000.00",
+    "iptu": "1000.00",
+    "metros_quadrados": 20000,
+    "quartos_total": 1000,
+    "quartos_suite": 250,
+    "banheiros_total": 500,
+    "mobiliado": true,
+    "varanda": true,
+    "direcao_sol": "X",
+    "pet_friendly": true,
+    "acessibilidade": true,
+    "estacionamento": true,
+    "descricao": "Um castelo-escola magnífico e com boa vista.",
+    "data_insercao": "2024-04-20T21:46:13.284Z",
+    "data_ultima_modificacao": "2024-04-20T21:46:13.284Z",
+    "proprietario_id": "1a8e656c-2e35-4b33-91e8-ae80ae1f53b7",
+    "corretagem": [
+      "7842b980-1912-46dc-bf15-1d136c51237d"
+    ]
+  }
+},
+{
+  "model": "endpoints.imovel",
+  "pk": "b134d907-8d0f-4c50-9567-190ec7e17d57",
+  "fields": {
+    "destaque": false,
+    "nome_residencia": "Apartamento no H8",
+    "comprar": false,
+    "preco_compra": null,
+    "alugar": true,
+    "preco_aluguel": "0.00",
+    "taxa_condominio": null,
+    "iptu": "0.00",
+    "metros_quadrados": 20,
+    "quartos_total": 6,
+    "quartos_suite": 0,
+    "banheiros_total": 1,
+    "mobiliado": true,
+    "varanda": true,
+    "direcao_sol": "M",
+    "pet_friendly": false,
+    "acessibilidade": true,
+    "estacionamento": true,
+    "descricao": "Apartamento simpático no H8",
+    "data_insercao": "2024-04-20T22:09:40.380Z",
+    "data_ultima_modificacao": "2024-04-20T22:09:40.380Z",
+    "proprietario_id": "f5523b4f-1ca9-4711-b479-909f791c40b3",
+    "corretagem": [
+      "7842b980-1912-46dc-bf15-1d136c51237d",
+      "a825dc89-317d-45a8-9989-08a71acccc03"
+    ]
+  }
+},
+{
+  "model": "endpoints.imovel",
+  "pk": "e0095ef1-883a-41fd-9fbd-a7630dc83905",
+  "fields": {
+    "destaque": true,
+    "nome_residencia": "Estrela da Morte",
+    "comprar": false,
+    "preco_compra": null,
+    "alugar": true,
+    "preco_aluguel": "10000.00",
+    "taxa_condominio": "1000.00",
+    "iptu": "1000.00",
+    "metros_quadrados": 30000,
+    "quartos_total": 10000,
+    "quartos_suite": 2000,
+    "banheiros_total": 2500,
+    "mobiliado": true,
+    "varanda": false,
+    "direcao_sol": "X",
+    "pet_friendly": false,
+    "acessibilidade": true,
+    "estacionamento": false,
+    "descricao": "Perfeito para destruir planetas e conhecer a galáxia.",
+    "data_insercao": "2024-04-20T21:49:57.061Z",
+    "data_ultima_modificacao": "2024-04-20T22:20:07.543Z",
+    "proprietario_id": "b5e97c3f-a606-403b-9fd0-e82de133313a",
+    "corretagem": [
+      "7842b980-1912-46dc-bf15-1d136c51237d",
+      "a825dc89-317d-45a8-9989-08a71acccc03"
+    ]
+  }
+},
+{
+  "model": "endpoints.casa",
+  "pk": "499f2c06-9f81-467f-9a63-51fb8d04046e",
+  "fields": {
+    "numero_andares": 7,
+    "quintal": true
+  }
+},
+{
+  "model": "endpoints.casa",
+  "pk": "e0095ef1-883a-41fd-9fbd-a7630dc83905",
+  "fields": {
+    "numero_andares": 100,
+    "quintal": false
+  }
+},
+{
+  "model": "endpoints.apartamento",
+  "pk": "b134d907-8d0f-4c50-9567-190ec7e17d57",
+  "fields": {
+    "andar": 0,
+    "descricao_predio": "Tem sala de música, sala de jogos, sala de ginástica, etc."
+  }
+},
+{
+  "model": "endpoints.endereco",
+  "pk": "499f2c06-9f81-467f-9a63-51fb8d04046e",
+  "fields": {
+    "descricao_endereco": "Secreto para trouxas",
+    "lat": 91.0,
+    "lon": 181.0,
+    "perto_transporte_publico": false
+  }
+},
+{
+  "model": "endpoints.endereco",
+  "pk": "b134d907-8d0f-4c50-9567-190ec7e17d57",
+  "fields": {
+    "descricao_endereco": "DCTA/H8",
+    "lat": -23.21966814035347,
+    "lon": -45.85418260369269,
+    "perto_transporte_publico": false
+  }
+},
+{
+  "model": "endpoints.endereco",
+  "pk": "e0095ef1-883a-41fd-9fbd-a7630dc83905",
+  "fields": {
+    "descricao_endereco": "Espaço sideral",
+    "lat": 91.0,
+    "lon": 181.0,
+    "perto_transporte_publico": false
+  }
+},
+{
+  "model": "endpoints.multimidia",
+  "pk": "6952685c-2c1c-4177-9d50-e49abda6d3fb",
+  "fields": {
+    "imovel_id": "b134d907-8d0f-4c50-9567-190ec7e17d57",
+    "tipo_img_video": "IMG",
+    "extensao_arquivo": "jpeg",
+    "arquivo": "imoveis/h8.jpg"
+  }
+},
+{
+  "model": "endpoints.multimidia",
+  "pk": "93a96f20-3074-4754-8e27-72b1394ab313",
+  "fields": {
+    "imovel_id": "e0095ef1-883a-41fd-9fbd-a7630dc83905",
+    "tipo_img_video": "IMG",
+    "extensao_arquivo": "png",
+    "arquivo": "imoveis/Death_star1.png"
+  }
+},
+{
+  "model": "endpoints.multimidia",
+  "pk": "be98addb-df55-45a4-bb2f-f094ce45932e",
+  "fields": {
+    "imovel_id": "e0095ef1-883a-41fd-9fbd-a7630dc83905",
+    "tipo_img_video": "IMG",
+    "extensao_arquivo": "jpg",
+    "arquivo": "imoveis/Starwars_explosion.jpg"
+  }
+},
+{
+  "model": "endpoints.multimidia",
+  "pk": "c82ae4ed-f9dd-4ac2-b532-14700062b4f1",
+  "fields": {
+    "imovel_id": "499f2c06-9f81-467f-9a63-51fb8d04046e",
+    "tipo_img_video": "IMG",
+    "extensao_arquivo": "jpeg",
+    "arquivo": "imoveis/hogwarts.jpg"
+  }
+},
+{
+  "model": "endpoints.proprietario",
+  "pk": "1a8e656c-2e35-4b33-91e8-ae80ae1f53b7",
+  "fields": {
+    "nome": "Dumbledore",
+    "telefone": "12123456789",
+    "email": "dumbledore@hogwarts.com"
+  }
+},
+{
+  "model": "endpoints.proprietario",
+  "pk": "b5e97c3f-a606-403b-9fd0-e82de133313a",
+  "fields": {
+    "nome": "Darth Vader",
+    "telefone": "12123456789",
+    "email": "darth.vader@empire.com"
+  }
+},
+{
+  "model": "endpoints.proprietario",
+  "pk": "f5523b4f-1ca9-4711-b479-909f791c40b3",
+  "fields": {
+    "nome": "Iteano",
+    "telefone": "12123456789",
+    "email": "aluno@casd.com"
+  }
+}
+]
