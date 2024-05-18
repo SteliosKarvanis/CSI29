@@ -1,11 +1,15 @@
-import { HorizontalCard } from "@/components/HorizontalCard";
+"use client";
 import { HorizontalCardList } from "@/components/HorizontalCardList";
-import { Search } from "@/components/Search";
-import { HorizontalCardListProps } from "@/lib/types";
+import { ProductView } from "@/components/ProductView";
+import {
+  HorizontalCardListProps,
+  HorizontalCardProps,
+  ProductProps,
+} from "@/lib/types";
 import { Col } from "antd";
 
-export default function SearchPage() {
-  const card = {
+export default function ProductPage() {
+  const card: HorizontalCardProps = {
     imgSrc: "/house_example.jpg",
     city: "Bucuresti",
     county: "Ilfov",
@@ -37,14 +41,35 @@ export default function SearchPage() {
       imgSrc: "broker.png",
     },
   };
+
+  const imagesProps: ProductProps = {
+    city: "Sao Jose Dos Campos",
+    district: "Campus Do CTA",
+    county: "Sao Paulo",
+    street: "Rua H8A",
+    price: 1000000,
+    pricePerSquareMeter: 1000,
+    images: [
+      "/house_example.jpg",
+      "/house_example.jpg",
+      "/house_example.jpg",
+      "/house_example.jpg",
+      // Add more image URLs as needed
+    ],
+  };
   const cardsList: HorizontalCardListProps = {
-    name: "Resultados",
+    name: "Outras Similares",
+    cards: [card, card, card],
+  };
+  const cardsList2: HorizontalCardListProps = {
+    name: "Outros Proximos",
     cards: [card, card, card],
   };
   return (
     <Col>
-      <Search />
+      <ProductView {...imagesProps} />
       <HorizontalCardList {...cardsList} />
+      <HorizontalCardList {...cardsList2} />
     </Col>
   );
 }

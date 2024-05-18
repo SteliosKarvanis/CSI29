@@ -1,48 +1,24 @@
-export interface MediaProps {
-  primary: string;
-  secondary: string[];
-}
+import { ImageGalleryProps } from "@/lib/types";
+import { Carousel } from "antd";
 
-export const MediaView = (props: MediaProps): JSX.Element => {
+export const ImageGallery = (props: ImageGalleryProps): JSX.Element => {
   return (
-    <div
-      style={{
-        width: "100%",
-        height: "100%",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        gap: "21px",
-        display: "inline-flex",
-      }}
+    <Carousel
+      arrows
+      style={{ width: props.size, height: "auto", alignItems: "center" }}
     >
-      <img
-        style={{ alignSelf: "stretch", height: "400px" }}
-        src={props.primary}
-      />
-      <div
-        style={{
-          alignSelf: "stretch",
-          height: "100px",
-          justifyContent: "flex-start",
-          alignItems: "flex-start",
-          gap: "21px",
-          display: "inline-flex",
-        }}
-      >
-        <img
-          style={{ flex: "1 1 0", alignSelf: "stretch" }}
-          src="https://via.placeholder.com/184x100"
-        />
-        <img
-          style={{ flex: "1 1 0", alignSelf: "stretch" }}
-          src="https://via.placeholder.com/184x100"
-        />
-        <img
-          style={{ flex: "1 1 0", alignSelf: "stretch" }}
-          src="https://via.placeholder.com/184x100"
-        />
-      </div>
-    </div>
+      {props.images.map((image, index) => (
+        <div key={index}>
+          <img
+            src={image}
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+            }}
+          />
+        </div>
+      ))}
+    </Carousel>
   );
 };
