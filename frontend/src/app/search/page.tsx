@@ -39,11 +39,7 @@ export default function SearchPage() {
   };
   const cardsList: HorizontalCardListProps = {
     name: "Resultados",
-    cards: [
-      card,
-      card,
-      card,
-    ],
+    cards: [card, card, card],
   };
   return (
     <Col>

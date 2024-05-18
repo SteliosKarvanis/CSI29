@@ -3,7 +3,11 @@ import { Button, Flex } from "antd";
 
 export const HomeImage = (): JSX.Element => {
   return (
-    <Flex vertical  justify="center" align="center" gap="small"
+    <Flex
+      vertical
+      justify="center"
+      align="center"
+      gap="small"
       style={{
         width: "100%",
         height: "750px",
