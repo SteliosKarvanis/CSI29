@@ -24,7 +24,7 @@ export const Search = (): JSX.Element => {
       }}
     >
       <Flex gap="middle" vertical>
-        <p style={{fontSize: "32px", color: "black", textAlign: "center"}}>
+        <p style={{ fontSize: "32px", color: "black", textAlign: "center" }}>
           Busque o seu imovel ideal
         </p>
         <SearchMenuBar />

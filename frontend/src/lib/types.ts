@@ -39,3 +39,19 @@ export interface HorizontalCardListProps {
   name: string;
   cards: HorizontalCardProps[];
 }
+
+export interface ProductProps {
+  city?: string;
+  district?: string;
+  street?: string;
+  county?: string;
+  size?: number;
+  price?: number;
+  pricePerSquareMeter?: number;
+  images: string[];
+}
+
+export interface ImageGalleryProps {
+  images: string[];
+  size: string;
+}

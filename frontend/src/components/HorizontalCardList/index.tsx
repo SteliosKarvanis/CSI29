@@ -34,7 +34,7 @@ export const HorizontalCardList = (
           wordWrap: "break-word",
         }}
       >
-        Resultados
+        {props.name}
       </div>
       <div
         style={{
