@@ -12,6 +12,7 @@ export interface VerticalCardListProps {
   name: string;
   cards: VerticalCardProps[];
 }
+
 export interface TagProps {
   imageSrc: string;
   value: string;
