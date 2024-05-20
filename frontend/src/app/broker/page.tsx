@@ -40,7 +40,7 @@ export default function Broker() {
   };
   return (
     <div>
-      <HorizontalCardList {...props} />;
+      <HorizontalCardList isBrokerPage {...props} />;
     </div>
   );
 };

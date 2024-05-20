@@ -76,6 +76,7 @@ export const HorizontalCard = (props: HorizontalCardProps): JSX.Element => {
         height: "100%",
         paddingTop: topPadding,
         paddingBottom: bottomPadding,
+        display: props.isBrokerPage ? "none" : undefined,
       }}
     >
       <Button

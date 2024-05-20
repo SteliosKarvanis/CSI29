@@ -5,7 +5,7 @@ export const HorizontalCardList = (
   props: HorizontalCardListProps
 ): JSX.Element => {
   const cardsRender = props.cards.map((card, index) => (
-    <HorizontalCard key={index} {...card} />
+    <HorizontalCard key={index} {...card} isBrokerPage={props.isBrokerPage} />
   ));
   return (
     <div

@@ -33,10 +33,12 @@ export interface HorizontalCardProps {
   pricePerSquareMeter: number;
   tags: TagProps[];
   broker: BrokerProps;
+  isBrokerPage?: boolean;
 }
 
 export interface HorizontalCardListProps {
   name: string;
+  isBrokerPage?: boolean;
   cards: HorizontalCardProps[];
 }
 
