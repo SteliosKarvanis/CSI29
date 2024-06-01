@@ -26,6 +26,10 @@ services:
       - server-side
     volumes:
       - appvol_csi29_images:/usr/img
+    secrets:
+      - django_admin_pwd
+    depends_on:
+      - db
 
   db:
     image: postgres:16.2-alpine
@@ -51,3 +55,7 @@ volumes:
 
 networks:
   server-side:
+
+secrets:
+  django_admin_pwd:
+    file: ./backend/secrets/admin_pwd.txt
