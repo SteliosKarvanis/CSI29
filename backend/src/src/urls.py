@@ -26,3 +26,4 @@ urlpatterns = [
     path('', RedirectView.as_view(url='endpoints/', permanent=True)),
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)  # mídia (imóveis, fotos de corretores...)
