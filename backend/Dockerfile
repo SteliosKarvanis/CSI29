@@ -9,7 +9,7 @@ COPY requirements.txt ./
 RUN pip install -r requirements.txt
 COPY . .
 
-WORKDIR ./src
-
 EXPOSE 8000
-CMD ["../scripts/main.sh"]
+RUN dos2unix /usr/app/scripts/*
+CMD ["sh", "-C", "/usr/app/scripts/main.sh"]
+# CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
