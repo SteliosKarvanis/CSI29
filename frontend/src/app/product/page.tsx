@@ -3,15 +3,14 @@ import { HorizontalCardList } from "@/components/HorizontalCardList";
 import { ProductView } from "@/components/ProductView";
 import {
   HorizontalCardListProps,
-  HorizontalCardProps,
   ProductProps,
 } from "@/lib/types";
 import { Col } from "antd";
-import { GET } from "../api/product/route";
+import { GET_HORIZONTAL_CARD_LIST } from "../api/product/route";
 
 export default async function ProductPage() {
   // const product = await GET('http://backend:8000/endpoints/imoveis_destaque');
-  const destaques = await GET('http://backend:8000/endpoints/imoveis_ativos_info_completa');
+  const destaques = await GET_HORIZONTAL_CARD_LIST('http://backend:8000/endpoints/imoveis_ativos_info_completa');
 
   const imagesProps: ProductProps = {
     name: "Casa Exemplo",
@@ -29,15 +28,10 @@ export default async function ProductPage() {
     name: "Outras Similares",
     cards: destaques,
   };
-  const cardsList2: HorizontalCardListProps = {
-    name: "Outros Proximos",
-    cards: destaques,
-  };
   return (
     <Col>
       <ProductView {...imagesProps} />
       <HorizontalCardList {...cardsList} />
-      <HorizontalCardList {...cardsList2} />
     </Col>
   );
 }

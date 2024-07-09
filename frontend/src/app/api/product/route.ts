@@ -28,9 +28,13 @@ export async function GET_HORIZONTAL_CARD_LIST(url: string) {
       price = response["preco_aluguel"];
     }
     let price_per_meter = price / response["metros_quadrados"];
+    let imgSrc = null;
+    if (response["images"]) {
+      imgSrc = response["images"][0];
+    }
     const card: HorizontalCardProps = {
       id: response["pk"],
-      imgSrc: response["images"],
+      imgSrc: imgSrc,
       name: response["nome_residencia"],
       size: response["metros_quadrados"],
       price: price,
