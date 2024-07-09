@@ -21,13 +21,20 @@ export async function GET_HORIZONTAL_CARD_LIST(url: string) {
 
   const outputs: HorizontalCardProps[] = [];
   for (const response of responses) {
+    let price;
+    if (response["preco_compra"]) {
+      price = response["preco_compra"];
+    } else {
+      price = response["preco_aluguel"];
+    }
+    let price_per_meter = price / response["metros_quadrados"];
     const card: HorizontalCardProps = {
       id: response["pk"],
-      imgSrc: response["images"][0],
+      imgSrc: response["images"],
       name: response["nome_residencia"],
       size: response["metros_quadrados"],
-      price: response["preco_compra"],
-      pricePerSquareMeter: response["price_per_square_meter"],
+      price: price,
+      pricePerSquareMeter: price_per_meter,
       isPetFriendly: response["pet_friendly"],
       withFurniture: response["mobiliado"],
       withAccessibility: response["acessibilidade"],

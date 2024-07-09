@@ -10,32 +10,11 @@ import { Col } from "antd";
 import { GET } from "../api/product/route";
 
 export default async function ProductPage() {
-  const destaques = await GET('http://backend:8000/endpoints/imoveis_destaque');
   // const product = await GET('http://backend:8000/endpoints/imoveis_destaque');
-  const card: HorizontalCardProps = {
-    id: "1",
-    imgSrc: "/house_example.jpg",
-    name: "Casa Exemplo",
-    size: 100,
-    price: 100000,
-    pricePerSquareMeter: 1000,
-    isPetFriendly: true,
-    withFurniture: true,
-    withAccessibility: true,
-    parkingSpaces: 2,
-    bathrooms: 2,
-    bedrooms: 2,
-    toRent: true,
-    broker: {
-      name: "Vinicius Menezes",
-      role: "Corretor Associado",
-      imgSrc: "broker.png",
-    },
-  };
+  const destaques = await GET('http://backend:8000/endpoints/imoveis_ativos_info_completa');
 
   const imagesProps: ProductProps = {
     name: "Casa Exemplo",
-    district: "Campus Do CTA",
     price: 1000000,
     pricePerSquareMeter: 1000,
     images: [
@@ -48,11 +27,11 @@ export default async function ProductPage() {
   };
   const cardsList: HorizontalCardListProps = {
     name: "Outras Similares",
-    cards: [card, card, card],
+    cards: destaques,
   };
   const cardsList2: HorizontalCardListProps = {
     name: "Outros Proximos",
-    cards: [card, card, card],
+    cards: destaques,
   };
   return (
     <Col>

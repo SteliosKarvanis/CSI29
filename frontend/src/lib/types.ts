@@ -13,7 +13,7 @@ export interface VerticalCardListProps {
 
 export interface TagProps {
   imageSrc: string;
-  value: string;
+  value: string | number | undefined;
 }
 
 export interface BrokerProps {
@@ -49,7 +49,6 @@ export interface HorizontalCardListProps {
 
 export interface ProductProps {
   name: string;
-  district?: string;
   size?: number;
   price?: number;
   pricePerSquareMeter?: number;

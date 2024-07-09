@@ -4,7 +4,7 @@ import {
   background_color_default,
   background_color_secondary,
 } from "@/lib/constants";
-import { HorizontalCardProps } from "@/lib/types";
+import { HorizontalCardProps, TagProps } from "@/lib/types";
 import { Button, Card, Flex, List } from "antd";
 import Link from "next/link";
 import { BrokerIcon } from "../BrokerIcon";
@@ -14,22 +14,22 @@ export const HorizontalCard = (props: HorizontalCardProps): JSX.Element => {
   const brokerRender = BrokerIcon(props.broker);
   const topPadding = "20px";
   const bottomPadding = "20px";
-  const tags = [
+  const tags: TagProps[] = [
     {
       imageSrc: "/size.png",
-      value: props.size.toString(),
+      value: props.size,
     },
     {
       imageSrc: "/car.png",
-      value: props.parkingSpaces.toString(),
+      value: props.parkingSpaces,
     },
     {
       imageSrc: "/bathroom.png",
-      value: props.bathrooms.toString(),
+      value: props.bathrooms,
     },
     {
       imageSrc: "/room.png",
-      value: props.bedrooms.toString(),
+      value: props.bedrooms,
     },
   ];
   if (props.isPetFriendly) {
