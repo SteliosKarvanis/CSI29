@@ -13,9 +13,6 @@ export default async function ProductPage() {
     id: "1",
     imgSrc: "/house_example.jpg",
     name: "Casa Exemplo",
-    city: "Bucuresti",
-    county: "Ilfov",
-    street: "Strada Exemplu",
     size: 100,
     price: 100000,
     pricePerSquareMeter: 1000,
@@ -34,10 +31,8 @@ export default async function ProductPage() {
   };
 
   const imagesProps: ProductProps = {
-    city: "Sao Jose Dos Campos",
+    name: "Casa Exemplo",
     district: "Campus Do CTA",
-    county: "Sao Paulo",
-    street: "Rua H8A",
     price: 1000000,
     pricePerSquareMeter: 1000,
     images: [

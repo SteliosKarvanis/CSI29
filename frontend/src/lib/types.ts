@@ -1,8 +1,6 @@
 export interface VerticalCardProps {
   id: string;
-  city: string;
-  county: string;
-  street: string;
+  name: string;
   price: number;
   pricePerSquareMeter: number;
   imgSrc: string;
@@ -28,9 +26,6 @@ export interface HorizontalCardProps {
   id: string;
   imgSrc: string;
   name: string;
-  city: string;
-  county: string;
-  street: string;
   toRent: boolean;
   price: number;
   pricePerSquareMeter: number;
@@ -53,10 +48,8 @@ export interface HorizontalCardListProps {
 }
 
 export interface ProductProps {
-  city?: string;
+  name: string;
   district?: string;
-  street?: string;
-  county?: string;
   size?: number;
   price?: number;
   pricePerSquareMeter?: number;

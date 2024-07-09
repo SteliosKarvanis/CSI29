@@ -9,8 +9,7 @@ const { Meta } = Card;
 const titleRender = (props: VerticalCardProps): React.ReactNode => {
   return (
     <>
-      <h1>{props.county + ", " + props.city}</h1>
-      <p>{props.street}</p>
+      <h1>{props.name}</h1>
     </>
   );
 };

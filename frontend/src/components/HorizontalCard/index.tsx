@@ -64,7 +64,6 @@ export const HorizontalCard = (props: HorizontalCardProps): JSX.Element => {
     >
       <div>
         <p style={{ fontSize: "32px", color: "black" }}>{props.name}</p>
-        <p style={{ color: "black" }}>{props.county + ", " + props.city}</p>
       </div>
       <div>
         <p style={{ color: "black" }}>{"R$ " + props.price}</p>
