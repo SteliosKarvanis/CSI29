@@ -30,8 +30,6 @@ export default async function Home() {
       <HomeImage />
       <Search />
       <VerticalCardList {...cardsList} />
-      <VerticalCardList {...cardsList} />
-      <VerticalCardList {...cardsList} />
     </Col>
   );
 }

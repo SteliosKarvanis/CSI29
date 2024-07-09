@@ -8,7 +8,7 @@ import {
 } from "@/lib/types";
 import { Col } from "antd";
 
-export default function ProductPage() {
+export default async function ProductPage() {
   const card: HorizontalCardProps = {
     id: "1",
     imgSrc: "/house_example.jpg",

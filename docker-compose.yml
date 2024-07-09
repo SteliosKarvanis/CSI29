@@ -12,6 +12,8 @@ services:
         - /frontend/app/.next
     ports:
       - "3000:3000"
+    networks:
+      - front-back
   
   backend:
     image: backend
@@ -24,6 +26,7 @@ services:
       - MEDIA_ROOT=/usr/img
     networks:
       - server-side
+      - front-back
     volumes:
       - appvol_csi29_images:/usr/img
     secrets:
@@ -55,6 +58,7 @@ volumes:
 
 networks:
   server-side:
+  front-back:
 
 secrets:
   django_admin_pwd:
