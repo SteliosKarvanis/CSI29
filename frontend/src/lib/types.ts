@@ -29,7 +29,7 @@ export interface HorizontalCardProps {
   toRent: boolean;
   price: number;
   pricePerSquareMeter: number;
-  broker: BrokerProps;
+  broker?: BrokerProps;
   isBrokerPage?: boolean;
   // Tags
   size: number;
