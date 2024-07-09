@@ -1,18 +1,19 @@
-import { HorizontalCard } from "@/components/HorizontalCard";
 import { HorizontalCardList } from "@/components/HorizontalCardList";
 import { Search } from "@/components/Search";
 import { HorizontalCardListProps } from "@/lib/types";
 import { Col } from "antd";
+import { GET } from "../api/product/route";
 
-export default function SearchPage() {
+export default async function SearchPage() {
+  const responses = await GET('http://backend:8000/endpoints/imoveis_ativos_info_completa');
   const card = {
     imgSrc: "/house_example.jpg",
-    city: "Bucuresti",
+    city: responses[0]["nome_residencia"],
     county: "Ilfov",
-    street: "Strada Exemplu",
-    size: 100,
-    price: 100000,
-    pricePerSquareMeter: 1000,
+    street: responses[0]["descricao"],
+    size: responses[1]["metros_quadrados"],
+    price: responses[0]["preco_aluguel"],
+    pricePerSquareMeter: responses[0]["metros_quadrados"],
     tags: [
       {
         imageSrc: "/bathroom.png",

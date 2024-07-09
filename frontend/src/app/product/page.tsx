@@ -7,8 +7,10 @@ import {
   ProductProps,
 } from "@/lib/types";
 import { Col } from "antd";
+import { get } from "http";
 
-export default function ProductPage() {
+export default async function ProductPage() {
+  //const response = await fetch('/api/callFunction');
   const card: HorizontalCardProps = {
     imgSrc: "/house_example.jpg",
     city: "Bucuresti",
