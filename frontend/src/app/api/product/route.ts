@@ -46,6 +46,11 @@ export async function GET_HORIZONTAL_CARD_LIST(url: string) {
       bathrooms: response["banheiros_total"],
       bedrooms: response["quartos_total"],
       toRent: response["alugar"],
+      broker: { // TODO: get broker info by id
+        name: response["corretagem"][0]["nome"],
+        role: "Corretor Associado",
+        imgSrc: response["corretagem"][0]["foto"],
+      },
     };
     outputs.push(card);
   }

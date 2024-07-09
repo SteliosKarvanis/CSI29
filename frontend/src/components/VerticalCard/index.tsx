@@ -2,7 +2,7 @@
 
 import { VerticalCardProps } from "@/lib/types";
 import { Card } from "antd";
-import Link from "next/link";
+import Link from "antd/es/typography/Link";
 import React from "react";
 
 const { Meta } = Card;

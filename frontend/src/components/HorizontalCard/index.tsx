@@ -6,10 +6,12 @@ import {
 } from "@/lib/constants";
 import { HorizontalCardProps, TagProps } from "@/lib/types";
 import { Button, Card, Flex, List } from "antd";
-import Link from "next/link";
+import { BrokerIcon } from "../BrokerIcon";
 import { TagIcon } from "../TagIcon";
+import Link from "antd/es/typography/Link";
 
 export const HorizontalCard = (props: HorizontalCardProps): JSX.Element => {
+  const brokerRender = BrokerIcon(props.broker);
   const topPadding = "20px";
   const bottomPadding = "20px";
   const tags: TagProps[] = [
@@ -121,6 +123,7 @@ export const HorizontalCard = (props: HorizontalCardProps): JSX.Element => {
       >
         Contatar Corretor
       </Button>
+      {brokerRender}
     </Flex>
   );
 
