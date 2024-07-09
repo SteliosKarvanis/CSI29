@@ -6,7 +6,7 @@ import {
   ProductProps,
 } from "@/lib/types";
 import { Col } from "antd";
-import { GET_HORIZONTAL_CARD_LIST } from "../api/product/route";
+import { GET_HORIZONTAL_CARD_LIST } from "../../api/product/route";
 
 export default async function ProductPage() {
   // const product = await GET('http://backend:8000/endpoints/imoveis_destaque');
