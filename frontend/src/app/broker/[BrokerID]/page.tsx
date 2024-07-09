@@ -1,16 +1,19 @@
+"use client";
+
 import { HorizontalCardList } from "@/components/HorizontalCardList";
 import { HorizontalCardListProps } from "@/lib/types";
 import { useRouter } from "next/router";
 import { useMemo } from "react";
-import { GET, GET_HORIZONTAL_CARD_LIST } from "../api/product/route";
+import { GET, GET_HORIZONTAL_CARD_LIST } from "../../api/product/route";
 
 export default async function Broker() {
   const router = useRouter();
   const brokerID = useMemo(() => {
-    return router.query.brokerID as string;
+    return router.query.BrokerID;
   }, [router]);
 
-  const responses = await GET_HORIZONTAL_CARD_LIST('http://backend:8000/endpoints/imoveis_por_proprietario/' + brokerID);
+  // const responses = await GET_HORIZONTAL_CARD_LIST('http://backend:8000/endpoints/imoveis_por_proprietario/' + brokerID);
+  const responses = await GET_HORIZONTAL_CARD_LIST('http://backend:8000/endpoints/imoveis_destaque');
   const props: HorizontalCardListProps = {
     name: "My Ads",
     cards: [],
