@@ -125,7 +125,7 @@ export const HorizontalCard = (props: HorizontalCardProps): JSX.Element => {
   );
 
   return (
-    <Link href={"/imovel/" + props.id}>
+    <Link href={"/product/" + props.id}>
       <Card
         hoverable
         style={{ height: "200px", borderRadius: "30px" }}

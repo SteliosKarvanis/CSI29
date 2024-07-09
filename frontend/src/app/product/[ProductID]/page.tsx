@@ -1,36 +1,27 @@
 "use client";
+
 import { HorizontalCardList } from "@/components/HorizontalCardList";
 import { ProductView } from "@/components/ProductView";
-import {
-  HorizontalCardListProps,
-  ProductProps,
-} from "@/lib/types";
+import { HorizontalCardListProps } from "@/lib/types";
 import { Col } from "antd";
-import { GET_HORIZONTAL_CARD_LIST } from "../../api/product/route";
+import { useParams } from "next/navigation";
+import { GET, GET_HORIZONTAL_CARD_LIST } from "../../api/product/route";
 
 export default async function ProductPage() {
-  // const product = await GET('http://backend:8000/endpoints/imoveis_destaque');
-  const destaques = await GET_HORIZONTAL_CARD_LIST('http://backend:8000/endpoints/imoveis_ativos_info_completa');
+  const params = useParams();
+  const product = await GET('http://backend:8000/endpoints/imovel_detalhes/' + params["ProductID"]);
 
-  const imagesProps: ProductProps = {
-    name: "Casa Exemplo",
-    price: 1000000,
-    pricePerSquareMeter: 1000,
-    images: [
-      "/house_example.jpg",
-      "/house_example.jpg",
-      "/house_example.jpg",
-      "/house_example.jpg",
-      // Add more image URLs as needed
-    ],
-  };
+  // Suggestions
+  const destaques = await GET_HORIZONTAL_CARD_LIST(
+    "http://backend:8000/endpoints/imoveis_ativos_info_completa"
+  );
   const cardsList: HorizontalCardListProps = {
     name: "Outras Similares",
     cards: destaques,
   };
   return (
     <Col>
-      <ProductView {...imagesProps} />
+      <ProductView {...product} />
       <HorizontalCardList {...cardsList} />
     </Col>
   );

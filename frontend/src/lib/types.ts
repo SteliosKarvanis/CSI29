@@ -48,11 +48,30 @@ export interface HorizontalCardListProps {
 }
 
 export interface ProductProps {
-  name: string;
-  size?: number;
-  price?: number;
-  pricePerSquareMeter?: number;
-  images: string[];
+  imgSrcs: string[];
+  imovel_id: string;
+  destaque: boolean;
+  nome_residencia: string;
+  comprar: boolean;
+  preco_compra?: number | null;
+  alugar: boolean;
+  preco_aluguel?: number | null;
+  taxa_condominio?: number | null;
+  iptu: number;
+  metros_quadrados: number;
+  quartos_total: number;
+  quartos_suite: number;
+  banheiros_total: number;
+  mobiliado: boolean;
+  varanda: boolean;
+  direcao_sol: "M" | "T" | "X";
+  pet_friendly: boolean;
+  acessibilidade: boolean;
+  estacionamento: boolean;
+  descricao: string;
+  data_insercao: string;  // ISO 8601 format
+  data_ultima_modificacao: string;  // ISO 8601 format
+  proprietario_id: string;  // Assuming Proprietario model has a string ID
 }
 
 export interface ImageGalleryProps {
