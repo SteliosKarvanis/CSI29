@@ -1,8 +1,8 @@
 export interface VerticalCardProps {
   id: string;
   name: string;
+  toRent: boolean;
   price: number;
-  pricePerSquareMeter: number;
   imgSrc: string;
 }
 

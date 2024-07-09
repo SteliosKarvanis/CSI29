@@ -15,10 +15,15 @@ const titleRender = (props: VerticalCardProps): React.ReactNode => {
 };
 
 const descriptionRender = (props: VerticalCardProps): React.ReactNode => {
+  let buy_type = "A Venda";
+  if (props.toRent) {
+    buy_type = "Alugar";
+  }
+
   return (
     <>
+      <p>{buy_type}</p>
       <p>{"R$ " + props.price}</p>
-      <p>{"Valor do m2 R$" + props.pricePerSquareMeter}</p>
     </>
   );
 };

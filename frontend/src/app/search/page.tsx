@@ -3,9 +3,11 @@ import { Search } from "@/components/Search";
 import { HorizontalCardListProps } from "@/lib/types";
 import { Col } from "antd";
 import { GET } from "../api/product/route";
+import { log } from "console";
 
 export default async function SearchPage() {
-  const responses = await GET('http://backend:8000/endpoints/imoveis_ativos_info_completa');
+  const responses = await GET('http://backend:8000/endpoints/imoveis_destaque');
+  log(responses);
   const card = {
     id: "1",
     imgSrc: "/house_example.jpg",
