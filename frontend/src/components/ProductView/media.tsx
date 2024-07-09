@@ -7,7 +7,7 @@ export const ImageGallery = (props: ImageGalleryProps): JSX.Element => {
       arrows
       style={{ width: props.size, height: "auto", alignItems: "center" }}
     >
-      {props.images.map((image, index) => (
+      {/* {props.images.map((image, index) => (
         <div key={index}>
           <img
             src={image}
@@ -18,7 +18,7 @@ export const ImageGallery = (props: ImageGalleryProps): JSX.Element => {
             }}
           />
         </div>
-      ))}
+      ))} */}
     </Carousel>
   );
 };
