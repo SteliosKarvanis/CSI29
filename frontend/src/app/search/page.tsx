@@ -3,34 +3,32 @@ import { HorizontalCardList } from "@/components/HorizontalCardList";
 import { Search } from "@/components/Search";
 import { HorizontalCardListProps } from "@/lib/types";
 import { Col } from "antd";
+// import { GET } from "../api/product/route";
 
-export default function SearchPage() {
+export default async function SearchPage() {
+  // const responses = await GET('http://backend:8000/endpoints/imoveis_ativos_info_completa');
   const card = {
+    id: "1",
     imgSrc: "/house_example.jpg",
-    city: "Bucuresti",
+    name: "Casa Exemplo",
+    // city: responses[0]["nome_residencia"],
+    city: "asda",
     county: "Ilfov",
-    street: "Strada Exemplu",
+    street: "sdascas",
+    // street: responses[0]["descricao"],
     size: 100,
-    price: 100000,
-    pricePerSquareMeter: 1000,
-    tags: [
-      {
-        imageSrc: "/bathroom.png",
-        value: "2",
-      },
-      {
-        imageSrc: "/car.png",
-        value: "5",
-      },
-      {
-        imageSrc: "/room.png",
-        value: "3",
-      },
-      {
-        imageSrc: "/size.png",
-        value: "100",
-      },
-    ],
+    // size: responses[1]["metros_quadrados"],
+    price: 10000,
+    // price: responses[0]["preco_aluguel"],
+    pricePerSquareMeter: 100,
+    // pricePerSquareMeter: responses[0]["metros_quadrados"],
+    isPetFriendly: true,
+    withFurniture: true,
+    withAccessibility: true,
+    parkingSpaces: 2,
+    bathrooms: 2,
+    bedrooms: 2,
+    toRent: true,
     broker: {
       name: "Vinicius Menezes",
       role: "Corretor Associado",

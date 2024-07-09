@@ -25,16 +25,25 @@ export interface BrokerProps {
 }
 
 export interface HorizontalCardProps {
+  id: string;
   imgSrc: string;
+  name: string;
   city: string;
   county: string;
   street: string;
-  size: number;
+  toRent: boolean;
   price: number;
   pricePerSquareMeter: number;
-  tags: TagProps[];
   broker: BrokerProps;
   isBrokerPage?: boolean;
+  // Tags
+  size: number;
+  isPetFriendly: boolean;
+  withFurniture: boolean;
+  withAccessibility: boolean;
+  parkingSpaces: number;
+  bathrooms: number;
+  bedrooms: number;
 }
 
 export interface HorizontalCardListProps {
