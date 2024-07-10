@@ -10,6 +10,8 @@ import { GET, GET_HORIZONTAL_CARD_LIST } from "../../api/product/route";
 export default async function ProductPage() {
   const params = useParams();
   const product = await GET('http://backend:8000/endpoints/imovel_detalhes/' + params["ProductID"]);
+  const imgs=await GET('http://backend:8000/endpoints/multimidia_por_imovel/'+params["ProductID"]);
+
 
   // Suggestions
   const destaques = await GET_HORIZONTAL_CARD_LIST(
@@ -21,7 +23,7 @@ export default async function ProductPage() {
   };
   return (
     <Col>
-      <ProductView {...product} />
+      <ProductView {...product[0].fields} imgSrc={"http://localhost:8000/"+imgs[0]["fields"]["arquivo"]}/>
       <HorizontalCardList {...cardsList} />
     </Col>
   );

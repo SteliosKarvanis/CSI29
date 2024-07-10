@@ -17,6 +17,7 @@ export interface TagProps {
 }
 
 export interface BrokerProps {
+  id: string;
   name: string;
   role: string;
   imgSrc: string;
@@ -72,6 +73,7 @@ export interface ProductProps {
   data_insercao: string;  // ISO 8601 format
   data_ultima_modificacao: string;  // ISO 8601 format
   proprietario_id: string;  // Assuming Proprietario model has a string ID
+  corretagem: string[];
 }
 
 export interface ImageGalleryProps {

@@ -120,7 +120,8 @@ export const HorizontalCard = (props: HorizontalCardProps): JSX.Element => {
           height: "100%",
           width: "100%",
         }}
-      >
+        href={"/broker/"+props.broker.id}
+      > 
         Contatar Corretor
       </Button>
       {brokerRender}
@@ -149,8 +150,8 @@ export const HorizontalCard = (props: HorizontalCardProps): JSX.Element => {
         >
           <img
             alt="house"
-            width="100%"
-            height="100%"
+            width="20%"
+            height="20%"
             src={props.imgSrc}
             style={{ objectFit: "cover" }}
           />
