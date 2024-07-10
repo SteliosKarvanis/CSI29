@@ -70,7 +70,7 @@ export const HorizontalCard = (props: HorizontalCardProps): JSX.Element => {
         <p style={{ color: "black" }}>{"R$ " + props.price}</p>
         <p style={{ color: "black" }}>{props.size + " m2"}</p>
         <p style={{ color: "black" }}>
-          {"Valor do m2: R$ " + props.pricePerSquareMeter}
+          {"Valor do m2: R$ " + Math.round(props.pricePerSquareMeter*100000)/100000}
         </p>
       </div>
     </Flex>

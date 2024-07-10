@@ -18,7 +18,7 @@ export default async function ProductPage() {
     "http://backend:8000/endpoints/imoveis_ativos_info_completa"
   );
   const cardsList: HorizontalCardListProps = {
-    name: "Outras Similares",
+    name: "Imóveis similares",
     cards: destaques,
   };
   return (
