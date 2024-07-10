@@ -28,8 +28,7 @@ export const HorizontalCardList = (
           alignSelf: "stretch",
           color: "black",
           fontSize: "36px",
-          fontFamily: "Inter",
-          fontWeight: 500,
+          fontWeight: 400,
           lineHeight: "72px",
           wordWrap: "break-word",
         }}
