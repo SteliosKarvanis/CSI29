@@ -8,6 +8,7 @@ import { HorizontalCardProps, TagProps } from "@/lib/types";
 import { Button, Card, Flex, List } from "antd";
 import { BrokerIcon } from "../BrokerIcon";
 import { TagIcon } from "../TagIcon";
+import styles from './layout.module.css';
 import Link from "antd/es/typography/Link";
 
 export const HorizontalCard = (props: HorizontalCardProps): JSX.Element => {
@@ -132,7 +133,7 @@ export const HorizontalCard = (props: HorizontalCardProps): JSX.Element => {
     <Link href={"/product/" + props.id}>
       <Card
         hoverable
-        style={{ height: "200px", borderRadius: "30px" }}
+        style={{ height: "200px", borderRadius: "30px", width: "100%" }}
         styles={{ body: { padding: 0, overflow: "hidden" } }}
       >
         <Flex
@@ -146,18 +147,21 @@ export const HorizontalCard = (props: HorizontalCardProps): JSX.Element => {
             paddingRight: "30px",
             background: background_color_secondary,
             padding: 0,
+            display: "flex"
           }}
         >
-          <img
-            alt="house"
-            width="20%"
-            height="20%"
-            src={props.imgSrc}
-            style={{ objectFit: "cover" }}
-          />
-          {infosCol}
-          {tagsCol}
-          {contactCol}
+          <div className={styles.imageContainer} >
+            <img
+              alt="house"
+              src={props.imgSrc}
+              style={{ objectFit: "cover" }}
+            />
+          </div>
+          <div className={styles.textContainer}>
+            {infosCol}
+            {tagsCol}
+            {contactCol}
+          </div>
         </Flex>
       </Card>
     </Link>
