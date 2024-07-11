@@ -6,6 +6,7 @@ import {
 } from "@/lib/constants";
 import { HorizontalCardProps, TagProps } from "@/lib/types";
 import { Button, Card, Flex, List } from "antd";
+import Image from "next/image";
 import { BrokerIcon } from "../BrokerIcon";
 import { TagIcon } from "../TagIcon";
 import styles from './layout.module.css';
@@ -141,7 +142,7 @@ export const HorizontalCard = (props: HorizontalCardProps): JSX.Element => {
           gap="10px"
           style={{
             height: "200px",
-            width: "100%",
+            width: "200px",
             overflow: "hidden",
             borderRadius: "30px",
             paddingRight: "30px",
@@ -151,7 +152,12 @@ export const HorizontalCard = (props: HorizontalCardProps): JSX.Element => {
           }}
         >
           <div className={styles.imageContainer} >
-            <img
+            <Image 
+              priority
+              unoptimized
+              width={1000}
+              height={1000}
+              loader={({ src, width, quality }) => src}
               alt="house"
               src={props.imgSrc}
               style={{ objectFit: "cover" }}

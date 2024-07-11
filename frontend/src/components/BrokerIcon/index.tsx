@@ -1,16 +1,25 @@
 import { BrokerProps } from "@/lib/types";
 import { Flex } from "antd";
+import Image from "next/image";
 
 export const BrokerIcon = (props: BrokerProps): JSX.Element => {
   return (
     <Flex
       align="center"
       justify="flex-start"
-      style={{ width: "100%", height: "50px" }}
+      style={{ width: "50px", height: "50px" }}
     >
-      <img
-        style={{ width: "50px", height: "50px", borderRadius: "50px" }}
+      <Image
+        priority
+        unoptimized
+        width={50}
+        height={50}
+        loader={({ src, width, quality }) => src}
+        alt={props.imgSrc}
         src={props.imgSrc}
+        style={{
+          objectFit: 'cover', // cover, contain, none
+        }}
       />
       <Flex
         vertical
