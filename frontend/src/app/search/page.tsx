@@ -9,9 +9,7 @@ import { GET_HORIZONTAL_CARD_LIST } from "../api/product/route";
 
 export default async function SearchPage() {
   const searchParams = useSearchParams();
-
   const search = searchParams.get("query");
-
   const fetchData = async (query: string | null) => {
     // Example: Fetch data from an API
     if (!query) return [];
@@ -20,7 +18,6 @@ export default async function SearchPage() {
   };
 
   const responses = await fetchData(search);
-  console.log(responses);
   const cardsList: HorizontalCardListProps = {
     name: "Resultados",
     cards: responses,
