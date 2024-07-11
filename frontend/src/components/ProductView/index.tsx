@@ -1,14 +1,14 @@
-import { Button, Carousel, Flex, Row } from "antd";
-import { BrokerProps, ProductProps, ImageGalleryProps } from "@/lib/types";
 import {
   background_color_default,
   background_color_secondary,
 } from "@/lib/constants";
+import { ImageGalleryProps, ProductProps } from "@/lib/types";
+import { Button, Flex } from "antd";
 import { ImageGallery } from "./media";
 
 export const ProductView = (props: ProductProps): JSX.Element => {
-  const imgprops:ImageGalleryProps={
-    images: props.imgSrcs
+  const imgprops: ImageGalleryProps = {
+    images: props.imgSrcs,
   };
   const infosCol = (
     <Flex
@@ -23,15 +23,41 @@ export const ProductView = (props: ProductProps): JSX.Element => {
     >
       <div>
         <p style={{ fontSize: "32px", color: "black" }}>
-          {props.nome_residencia + ", " + props.comprar}
+          {props.nome_residencia}
         </p>
-        <p style={{ fontSize: "20px", color: "black" }}>{props.metros_quadrados}</p>
+        <p style={{ fontSize: "20px", color: "black" }}>{props.descricao}</p>
+        <p style={{ fontSize: "20px", color: "black" }}>
+          {props.metros_quadrados} m2
+        </p>
       </div>
       <div>
-        <p style={{ color: "black" }}>{"compra: R$ " + props.preco_compra}</p>
-        <p style={{ color: "black" }}>
-          {"aluguel: R$ " + props.preco_aluguel}
-        </p>
+        {props.preco_compra ? (
+          <p style={{ color: "black" }}>{"R$ " + props.preco_compra}</p>
+        ) : (
+          <p style={{ color: "black" }}></p>
+        )}
+        {props.preco_aluguel ? (
+          <p style={{ color: "black" }}>
+            {"aluguel: R$ " + props.preco_aluguel}
+          </p>
+        ) : (
+          <p style={{ color: "black" }}></p>
+        )}
+        {props.estacionamento ? (
+          <p style={{ color: "black" }}>{"Estacionamento"}</p>
+        ) : (
+          <p style={{ color: "black" }}></p>
+        )}
+        {props.pet_friendly ? (
+          <p style={{ color: "black" }}>{"Pet Friendly"}</p>
+        ) : (
+          <p style={{ color: "black" }}></p>
+        )}
+        {props.mobiliado ? (
+          <p style={{ color: "black" }}>{"Mobiliado"}</p>
+        ) : (
+          <p style={{ color: "black" }}></p>
+        )}
       </div>
       <Button
         shape="round"
@@ -41,7 +67,7 @@ export const ProductView = (props: ProductProps): JSX.Element => {
           height: "100%",
           width: "100%",
         }}
-        href={"/broker/"+props.corretagem[0]}
+        href={"/broker/" + props.corretagem[0]}
       >
         Contatar Corretor
       </Button>
@@ -61,7 +87,7 @@ export const ProductView = (props: ProductProps): JSX.Element => {
         background: background_color_secondary,
       }}
     >
-      <ImageGallery {...imgprops}/>
+      <ImageGallery {...imgprops} />
       {infosCol}
     </Flex>
   );
