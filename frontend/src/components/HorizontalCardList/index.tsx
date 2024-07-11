@@ -15,6 +15,7 @@ export const HorizontalCardList = (
         paddingTop: "20px",
         paddingLeft: "200px",
         paddingRight: "200px",
+        paddingBottom: "500px",
         flexDirection: "column",
         justifyContent: "flex-start",
         alignItems: "flex-start",
