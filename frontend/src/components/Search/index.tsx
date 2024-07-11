@@ -2,10 +2,17 @@
 
 import { background_color_secondary, button_color } from "@/lib/constants";
 import { Button, Collapse, CollapseProps, Flex, Input } from "antd";
+import { useState } from "react";
 import { SearchForms } from "./forms";
 import { SearchMenuBar } from "./menubar";
 
 export const Search = (): JSX.Element => {
+  const [text, setText] = useState("");
+  const handleInputChange = (e) => {
+    let new_text = "?query=" + e.target.value;
+    setText(new_text);
+  };
+
   const items: CollapseProps["items"] = [
     {
       key: "1",
@@ -30,11 +37,15 @@ export const Search = (): JSX.Element => {
         <SearchMenuBar />
         <div>
           <p style={{ color: "black" }}>Endereco (Rua, Bairro, CEP, cidade)</p>
-          <Input placeholder="E.g. Campus do CTA" size="large" />
+          <Input
+            placeholder="E.g. Campus do CTA"
+            size="large"
+            onChange={handleInputChange}
+          />
         </div>
         <Collapse ghost items={items} />
         <Button
-          href="/search"
+          href={"/search" + text}
           block
           size="large"
           style={{ background: button_color, color: "white" }}
