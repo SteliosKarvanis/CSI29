@@ -64,4 +64,5 @@ urlpatterns = [
         views.imoveis_por_direcao_sol,
         name="imoveis_por_direcao_sol",
     ),
+    path("search", views.search_imoveis, name="search_imoveis"),
 ]

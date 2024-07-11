@@ -192,3 +192,20 @@ def imoveis_por_direcao_sol(request, direcao_sol):
     imoveis = Imovel.objects.filter(direcao_sol=direcao_sol)
     data = serializers.serialize("json", imoveis)
     return HttpResponse(data, content_type="application/json")
+
+def search_imoveis(request):
+    query = request.GET.get('query', '')
+    if query:
+        results_list = Imovel.objects.filter(nome_residencia__icontains=query)  # Adjust the filter as needed
+    else:
+        return HttpResponse([], content_type="application/json")
+    
+    imoveis_l = json.loads(serializers.serialize("json", results_list))
+    imoveis_l = [{'pk': v['pk'], 'images': [], **v['fields']} for v in imoveis_l]
+    mm = Multimidia.objects.all()
+    mm_l = json.loads(serializers.serialize("json", mm))
+    for vi in imoveis_l:
+        for vmm in mm_l:
+            if vi['pk'] == vmm['fields']['imovel_id']:
+                vi['images'].append(vmm['fields']['arquivo'])
+    return HttpResponse(json.dumps(imoveis_l), content_type="application/json")

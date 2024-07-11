@@ -1,11 +1,26 @@
+"use client";
+
 import { HorizontalCardList } from "@/components/HorizontalCardList";
 import { Search } from "@/components/Search";
 import { HorizontalCardListProps } from "@/lib/types";
 import { Col } from "antd";
+import { useSearchParams } from "next/navigation";
 import { GET_HORIZONTAL_CARD_LIST } from "../api/product/route";
 
 export default async function SearchPage() {
-  const responses = await GET_HORIZONTAL_CARD_LIST('http://backend:8000/endpoints/imoveis_ativos_info_completa');
+  const searchParams = useSearchParams();
+
+  const search = searchParams.get("query");
+
+  const fetchData = async (query: string | null) => {
+    // Example: Fetch data from an API
+    if (!query) return [];
+    const url = `http://backend:8000/endpoints/search?query=${query}`;
+    return await GET_HORIZONTAL_CARD_LIST(url);
+  };
+
+  const responses = await fetchData(search);
+  console.log(responses);
   const cardsList: HorizontalCardListProps = {
     name: "Resultados",
     cards: responses,
