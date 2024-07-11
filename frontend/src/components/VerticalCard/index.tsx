@@ -30,7 +30,7 @@ const descriptionRender = (props: VerticalCardProps): React.ReactNode => {
 
 export const VerticalCard = (props: VerticalCardProps): JSX.Element => {
   return (
-    <Link href={"/product/" + props.id}>
+    <Link href={"/product/"+ props.id+`?search=${props.id}`}>
       <Card
         hoverable
         cover={<img src={props.imgSrc} width={250} height={250} />}
