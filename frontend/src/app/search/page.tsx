@@ -9,7 +9,7 @@ export default async function SearchPage({
 }: {
   searchParams: { [key: string]: string | string[] | undefined };
 }) {
-  const search = searchParams.query as string
+  const search = searchParams.query as string;
   const fetchData = async (query: string | null) => {
     // Example: Fetch data from an API
     if (!query) return [];
