@@ -1,9 +1,20 @@
 export interface VerticalCardProps {
   id: string;
+  imgSrc: string;
   name: string;
   toRent: boolean;
   price: number;
-  imgSrc: string;
+  pricePerSquareMeter: number;
+  broker: BrokerProps;
+  isBrokerPage?: boolean;
+  // Tags
+  size: number;
+  isPetFriendly: boolean;
+  withFurniture: boolean;
+  withAccessibility: boolean;
+  parkingSpaces: number;
+  bathrooms: number;
+  bedrooms: number;
 }
 
 export interface VerticalCardListProps {
@@ -78,5 +89,5 @@ export interface ProductProps {
 
 export interface ImageGalleryProps {
   images: string[];
-  size: string;
+  //size: string;
 }

@@ -1,12 +1,15 @@
 import { Button, Carousel, Flex, Row } from "antd";
-import { BrokerProps, ProductProps } from "@/lib/types";
+import { BrokerProps, ProductProps, ImageGalleryProps } from "@/lib/types";
 import {
   background_color_default,
   background_color_secondary,
 } from "@/lib/constants";
 import { ImageGallery } from "./media";
 
-export const ProductView = (props: ProductProps,imgSrc:string): JSX.Element => {
+export const ProductView = (props: ProductProps): JSX.Element => {
+  const imgprops:ImageGalleryProps={
+    images: props.imgSrcs
+  };
   const infosCol = (
     <Flex
       vertical
@@ -58,7 +61,7 @@ export const ProductView = (props: ProductProps,imgSrc:string): JSX.Element => {
         background: background_color_secondary,
       }}
     >
-      <ImageGallery images={[imgSrc]} size="500px" />
+      <ImageGallery {...imgprops}/>
       {infosCol}
     </Flex>
   );
