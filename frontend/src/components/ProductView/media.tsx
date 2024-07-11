@@ -1,24 +1,23 @@
 import { ImageGalleryProps } from "@/lib/types";
-import { Carousel } from "antd";
+import { Carousel,Image } from "antd";
 
-export const ImageGallery = (props: ImageGalleryProps): JSX.Element => {
+export const ImageGallery = (image_props: ImageGalleryProps): JSX.Element => {
+  const image_names=image_props.images;
   return (
     <Carousel
-      arrows
-      style={{ width: props.size, height: "auto", alignItems: "center" }}
+      arrow
+      style={{ width: "200px", height: "200px", alignItems: "center" }}
     >
-      {/* {props.images.map((image, index) => (
-        <div key={index}>
-          <img
-            src={image}
-            style={{
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-            }}
-          />
-        </div>
-      ))} */}
+      {image_names.map((image, index) => (
+        <img key={index}
+          src={image}
+          style={{
+            width: "auto",
+            height: "100%",
+            objectFit: "cover",
+          }}
+        />
+      ))}
     </Carousel>
   );
 };

@@ -5,7 +5,7 @@ import {
   background_color_secondary,
 } from "@/lib/constants";
 import { HorizontalCardProps, TagProps } from "@/lib/types";
-import { Button, Card, Flex, List } from "antd";
+import { Button, Card, Flex, List, Row } from "antd";
 import { BrokerIcon } from "../BrokerIcon";
 import { TagIcon } from "../TagIcon";
 import styles from './layout.module.css';
@@ -15,6 +15,7 @@ export const HorizontalCard = (props: HorizontalCardProps): JSX.Element => {
   const brokerRender = BrokerIcon(props.broker);
   const topPadding = "20px";
   const bottomPadding = "20px";
+  const rightPadding = "20px";
   const tags: TagProps[] = [
     {
       imageSrc: "/size.png",
@@ -36,19 +37,19 @@ export const HorizontalCard = (props: HorizontalCardProps): JSX.Element => {
   if (props.isPetFriendly) {
     tags.push({
       imageSrc: "/pet.png",
-      value: "Pet Friendly",
+      //value: props.isPetFriendly,
     });
   }
   if (props.withAccessibility) {
     tags.push({
       imageSrc: "/accessibility.png",
-      value: "Acessibilidade",
+      //value: props.withAccessibility,
     });
   }
   if (props.withFurniture) {
     tags.push({
       imageSrc: "/furniture.png",
-      value: "Mobiliado",
+      //value: "Mobiliado",
     });
   }
   const infosCol = (
@@ -61,10 +62,11 @@ export const HorizontalCard = (props: HorizontalCardProps): JSX.Element => {
         height: "100%",
         paddingTop: topPadding,
         paddingBottom: bottomPadding,
+        paddingRight: rightPadding,
       }}
     >
       <div>
-        <p style={{ fontSize: "32px", color: "black" }}>{props.name}</p>
+        <p style={{ fontSize: "20px", color: "black" }}>{props.name}</p>
       </div>
       <div>
         <p style={{ color: "black" }}>{"R$ " + props.price}</p>
@@ -79,13 +81,13 @@ export const HorizontalCard = (props: HorizontalCardProps): JSX.Element => {
     <List
       dataSource={tags}
       grid={{
-        gutter: 16,
-        xs: 1,
-        sm: 2,
-        md: 4,
-        lg: 4,
-        xl: 6,
-        xxl: 2,
+        gutter: 16,  // Space between columns (in pixels)
+        xs: 1,       // Number of columns for extra small screens (less than 576px)
+        sm: 1,       // Number of columns for small screens (576px and above)
+        md: 2,       // Number of columns for medium screens (768px and above)
+        lg: 2,       // Number of columns for large screens (992px and above)
+        xl: 2,       // Number of columns for extra large screens (1200px and above)
+        xxl: 2,      // Number of columns for extra extra large screens (1600px and above)
       }}
       style={{
         width: "100%",
@@ -113,28 +115,32 @@ export const HorizontalCard = (props: HorizontalCardProps): JSX.Element => {
         display: props.isBrokerPage ? "none" : undefined,
       }}
     >
-      <Button
-        shape="round"
-        style={{
-          background: background_color_default,
-          color: "white",
-          height: "100%",
-          width: "100%",
-        }}
-        href={"/broker/"+props.broker.id}
-      > 
-        Contatar Corretor
-      </Button>
-      {brokerRender}
+      <Row>
+        <Button
+          shape="round"
+          style={{
+            background: background_color_default,
+            color: "white",
+            height: "100%",
+            width: "80%",
+          }}
+          href={"/broker/"+props.broker.id}
+        > 
+          Contatar Corretor
+        </Button>
+      </Row>
+      <Row>
+        {brokerRender}
+      </Row>
     </Flex>
   );
 
   return (
-    <Link href={"/product/" + props.id}>
+    <Link href={"/product/"+ props.id+`?search=${props.id}`}>
       <Card
         hoverable
-        style={{ height: "200px", borderRadius: "30px", width: "100%" }}
-        styles={{ body: { padding: 0, overflow: "hidden" } }}
+        style={{ height: "200px", borderRadius: "30px", width: "1000px" }}
+        bodyStyle={{ padding: 0, overflow: "hidden" }}
       >
         <Flex
           align="center"
@@ -146,15 +152,14 @@ export const HorizontalCard = (props: HorizontalCardProps): JSX.Element => {
             borderRadius: "30px",
             paddingRight: "30px",
             background: background_color_secondary,
-            padding: 0,
             display: "flex"
           }}
         >
-          <div className={styles.imageContainer} >
+          <div className={styles.imageContainer}>
             <img
               alt="house"
               src={props.imgSrc}
-              style={{ objectFit: "cover" }}
+              style={{ objectFit: "fill" }}
             />
           </div>
           <div className={styles.textContainer}>
@@ -167,3 +172,4 @@ export const HorizontalCard = (props: HorizontalCardProps): JSX.Element => {
     </Link>
   );
 };
+
