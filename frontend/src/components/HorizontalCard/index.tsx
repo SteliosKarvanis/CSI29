@@ -19,37 +19,37 @@ export const HorizontalCard = (props: HorizontalCardProps): JSX.Element => {
   const rightPadding = "20px";
   const tags: TagProps[] = [
     {
-      imageSrc: "/size.png",
+      imageSrc: "/size.svg",
       value: props.size,
     },
     {
-      imageSrc: "/car.png",
+      imageSrc: "/car.svg",
       value: props.parkingSpaces,
     },
     {
-      imageSrc: "/bathroom.png",
+      imageSrc: "/bathroom.svg",
       value: props.bathrooms,
     },
     {
-      imageSrc: "/room.png",
+      imageSrc: "/room.svg",
       value: props.bedrooms,
     },
   ];
   if (props.isPetFriendly) {
     tags.push({
-      imageSrc: "/pet.png",
+      imageSrc: "/pet.svg",
       //value: props.isPetFriendly,
     });
   }
   if (props.withAccessibility) {
     tags.push({
-      imageSrc: "/accessibility.png",
+      imageSrc: "/accessibility.svg",
       //value: props.withAccessibility,
     });
   }
   if (props.withFurniture) {
     tags.push({
-      imageSrc: "/furniture.png",
+      imageSrc: "/furniture.svg",
       //value: "Mobiliado",
     });
   }

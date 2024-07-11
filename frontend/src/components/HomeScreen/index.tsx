@@ -11,12 +11,12 @@ export const HomeImage = (): JSX.Element => {
       style={{
         width: "100%",
         height: "750px",
-        backgroundImage: "url(house_example.jpg)",
+        backgroundImage: "url(cover.jpg)",
         backgroundSize: "cover",
       }}
     >
-      <p style={{ fontSize: "64px" }}>{company_name}</p>
-      <p style={{ fontSize: "32px" }}>Ache o imovel ideal para voce</p>
+      <p style={{ fontSize: "256px", fontFamily: "'Brush Script MT',cursive", color: "rgb(255, 218, 187)" }}>{company_name}</p>
+      <p style={{ fontSize: "64px" , fontFamily: "'Brush Script MT',cursive", color: "rgb(255, 218, 187)" }}>Ache o imóvel ideal para você</p>
       <Button
         href="/search"
         shape="round"
