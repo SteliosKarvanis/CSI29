@@ -1,15 +1,15 @@
-"use client";
-
 import { HorizontalCardList } from "@/components/HorizontalCardList";
 import { Search } from "@/components/Search";
 import { HorizontalCardListProps } from "@/lib/types";
 import { Col } from "antd";
-import { useSearchParams } from "next/navigation";
 import { GET_HORIZONTAL_CARD_LIST } from "../api/product/route";
 
-export default async function SearchPage() {
-  const searchParams = useSearchParams();
-  const search = searchParams.get("query");
+export default async function SearchPage({
+  searchParams,
+}: {
+  searchParams: { [key: string]: string | string[] | undefined };
+}) {
+  const search = searchParams.query as string
   const fetchData = async (query: string | null) => {
     // Example: Fetch data from an API
     if (!query) return [];
