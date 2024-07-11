@@ -10,6 +10,7 @@ import { BrokerIcon } from "../BrokerIcon";
 import { TagIcon } from "../TagIcon";
 import styles from './layout.module.css';
 import Link from "antd/es/typography/Link";
+import MailtoButton from "../ContactButton";
 
 export const HorizontalCard = (props: HorizontalCardProps): JSX.Element => {
   const brokerRender = BrokerIcon(props.broker);
@@ -116,18 +117,7 @@ export const HorizontalCard = (props: HorizontalCardProps): JSX.Element => {
       }}
     >
       <Row>
-        <Button
-          shape="round"
-          style={{
-            background: background_color_default,
-            color: "white",
-            height: "100%",
-            width: "80%",
-          }}
-          href={"/broker/"+props.broker.id}
-        > 
-          Contatar Corretor
-        </Button>
+        <MailtoButton />
       </Row>
       <Row>
         {brokerRender}
