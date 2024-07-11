@@ -5,6 +5,7 @@ import {
 import { ImageGalleryProps, ProductProps } from "@/lib/types";
 import { Button, Flex } from "antd";
 import { ImageGallery } from "./media";
+import MailtoButton from "../ContactButton";
 
 export const ProductView = (props: ProductProps): JSX.Element => {
   const imgprops: ImageGalleryProps = {
@@ -59,18 +60,7 @@ export const ProductView = (props: ProductProps): JSX.Element => {
           <p style={{ color: "black" }}></p>
         )}
       </div>
-      <Button
-        shape="round"
-        style={{
-          background: background_color_default,
-          color: "white",
-          height: "100%",
-          width: "100%",
-        }}
-        href={"/broker/" + props.corretagem[0]}
-      >
-        Contatar Corretor
-      </Button>
+      <MailtoButton />
     </Flex>
   );
 
